@@ -95,5 +95,7 @@
   <%= @monster.runes %>
 </p>
 
-<%= link_to 'Edit', edit_monster_path(@monster) %> |
+<%  if current_summoner.id == 1 %>
+  <%= link_to 'Edit', edit_monster_path(@monster) %> |
+<% end %>
 <%= link_to 'Back', monsters_path %> 

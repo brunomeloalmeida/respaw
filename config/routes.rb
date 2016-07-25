@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :summoners
   resources :monsters
   resources :users
   resources :welcome

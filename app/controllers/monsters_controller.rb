@@ -1,5 +1,6 @@
 class MonstersController < ApplicationController
   before_action :set_monster, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_summoner!
 
   # GET /monsters
   # GET /monsters.json
@@ -14,7 +15,11 @@ class MonstersController < ApplicationController
 
   # GET /monsters/new
   def new
-    @monster = Monster.new
+    if current_summoner.id != 1
+      redirect_to welcome_index_path
+    else
+      @monster = Monster.new
+    end
   end
 
   # GET /monsters/1/edit
@@ -24,15 +29,19 @@ class MonstersController < ApplicationController
   # POST /monsters
   # POST /monsters.json
   def create
-    @monster = Monster.new(monster_params)
+    if current_summoner.id != 1
+      redirect_to welcome_index_path
+    else
+      @monster = Monster.new(monster_params)
 
-    respond_to do |format|
-      if @monster.save
-        format.html { redirect_to @monster, notice: 'Monster was successfully created.' }
-        format.json { render :show, status: :created, location: @monster }
-      else
-        format.html { render :new }
-        format.json { render json: @monster.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @monster.save
+          format.html { redirect_to @monster, notice: 'Monster was successfully created.' }
+          format.json { render :show, status: :created, location: @monster }
+        else
+          format.html { render :new }
+          format.json { render json: @monster.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -40,13 +49,17 @@ class MonstersController < ApplicationController
   # PATCH/PUT /monsters/1
   # PATCH/PUT /monsters/1.json
   def update
-    respond_to do |format|
-      if @monster.update(monster_params)
-        format.html { redirect_to @monster, notice: 'Monster was successfully updated.' }
-        format.json { render :show, status: :ok, location: @monster }
-      else
-        format.html { render :edit }
-        format.json { render json: @monster.errors, status: :unprocessable_entity }
+    if current_summoner.id != 1
+      redirect_to welcome_index_path
+    else
+      respond_to do |format|
+        if @monster.update(monster_params)
+          format.html { redirect_to @monster, notice: 'Monster was successfully updated.' }
+          format.json { render :show, status: :ok, location: @monster }
+        else
+          format.html { render :edit }
+          format.json { render json: @monster.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -54,10 +67,14 @@ class MonstersController < ApplicationController
   # DELETE /monsters/1
   # DELETE /monsters/1.json
   def destroy
-    @monster.destroy
-    respond_to do |format|
-      format.html { redirect_to monsters_url, notice: 'Monster was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_summoner.id != 1
+      redirect_to welcome_index_path
+    else
+      @monster.destroy
+      respond_to do |format|
+        format.html { redirect_to monsters_url, notice: 'Monster was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

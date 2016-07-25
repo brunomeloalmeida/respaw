@@ -14,8 +14,12 @@
 
 <br><br>
 
-<div class="button_add">
-  <%= button_to new_monster_path, :class => "btn btn-default", :method => :get do %>
-    <span class="glyphicon glyphicon-plus"></span> <% end %>
-</div>
+<%  if current_summoner.id == 1 %>
+  <div class="button_add">
+    <%= button_to new_monster_path, :class => "btn btn-default", :method => :get do %>
+      <span class="glyphicon glyphicon-plus"></span> <% end %>
+  </div>
+<% end %>
+
+
 
