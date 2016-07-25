@@ -1,0 +1,32 @@
+// Place all the styles related to the Monsters controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul#monster_grid {
+	list-style: none;
+}									
+
+ul#monster_grid li {
+	height: 105px;
+	width: 110px;
+	float: left;
+	margin: 10px;
+	margin-bottom: 50px;
+    border: 2px solid #ffffff;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.4);
+    text-align: center;
+}
+
+ul#monster_grid li:hover {
+	-moz-transform: scale(1.1);
+}
+
+.button_add {
+	clear: both;
+	position: relative;
+}
+
+ul#monster_grid li p {
+	padding-top: 10px;
+}

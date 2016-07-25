@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  element: MyString
+  natural: 1
+  hp_base: 1
+  atk_base: 1
+  def_base: 1
+  vel_base: 1
+  cr_base: MyString
+  cd_base: MyString
+  res_base: MyString
+  acc_base: MyString
+  hp_awake: 1
+  atk_awake: 1
+  def_awake: 1
+  vel_awake: 1
+  cr_awake: MyString
+  cd_awake: MyString
+  res_awake: MyString
+  acc_awake: MyString
+  high_essence_elemental: 1
+  mid_essence_elemental: 1
+  low_essence_elemental: 1
+  high_essence_magic: 1
+  mid_essence_magic: 1
+  low_essence_magic: 1
+  runes: MyString
+
+two:
+  name: MyString
+  element: MyString
+  natural: 1
+  hp_base: 1
+  atk_base: 1
+  def_base: 1
+  vel_base: 1
+  cr_base: MyString
+  cd_base: MyString
+  res_base: MyString
+  acc_base: MyString
+  hp_awake: 1
+  atk_awake: 1
+  def_awake: 1
+  vel_awake: 1
+  cr_awake: MyString
+  cd_awake: MyString
+  res_awake: MyString
+  acc_awake: MyString
+  high_essence_elemental: 1
+  mid_essence_elemental: 1
+  low_essence_elemental: 1
+  high_essence_magic: 1
+  mid_essence_magic: 1
+  low_essence_magic: 1
+  runes: MyString

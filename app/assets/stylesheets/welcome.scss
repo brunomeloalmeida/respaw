@@ -1,0 +1,43 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#menu-logar {
+  float: right;
+  margin-top: -20pt;
+  text-decoration: none;
+}
+
+.links_home a:hover{
+  text-decoration: none;
+  background: none;
+  color: white;
+}
+
+#menu-logar ol {
+  background: rgb(237,237,237);
+}
+
+.links_telas a:hover {
+  text-decoration: none;
+  background: rgb(248,248,248);
+  color: black;
+}
+
+#welcome_principal {
+  text-align: center;
+}
+
+.jumbotron {
+	background-image: image-url("My_Summoners-War-Header.png");
+	margin-top: 10px;
+	padding-top: 0px;
+	margin-bottom: 10px;
+	height: 200px;
+}
+
+.links_home {		
+	clear: both;
+	position: relative;
+	text-align: center;
+}

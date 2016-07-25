@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @monster.avatar.url(:thumb) %>
+  <hr>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @monster.name %>
+</p>
+
+<p>
+  <strong>Element:</strong>
+  <%= @monster.element %>
+</p>
+
+<p>
+  <strong>Star:</strong>
+  <%= @monster.star %>
+</p>
+
+<p>
+  <strong>Hp base:</strong>
+  <%= @monster.hp_base %>
+</p>
+
+<p>
+  <strong>Atk base:</strong>
+  <%= @monster.atk_base %>
+</p>
+
+<p>
+  <strong>Def base:</strong>
+  <%= @monster.def_base %>
+</p>
+
+<p>
+  <strong>Vel base:</strong>
+  <%= @monster.vel_base %>
+</p>
+
+<p>
+  <strong>Hp awake:</strong>
+  <%= @monster.hp_awake %>
+</p>
+
+<p>
+  <strong>Atk awake:</strong>
+  <%= @monster.atk_awake %>
+</p>
+
+<p>
+  <strong>Def awake:</strong>
+  <%= @monster.def_awake %>
+</p>
+
+<p>
+  <strong>Vel awake:</strong>
+  <%= @monster.vel_awake %>
+</p>
+
+<p>
+  <strong>High essence elemental:</strong>
+  <%= @monster.high_essence_elemental %>
+</p>
+
+<p>
+  <strong>Mid essence elemental:</strong>
+  <%= @monster.mid_essence_elemental %>
+</p>
+
+<p>
+  <strong>Low essence elemental:</strong>
+  <%= @monster.low_essence_elemental %>
+</p>
+
+<p>
+  <strong>High essence magic:</strong>
+  <%= @monster.high_essence_magic %>
+</p>
+
+<p>
+  <strong>Mid essence magic:</strong>
+  <%= @monster.mid_essence_magic %>
+</p>
+
+<p>
+  <strong>Low essence magic:</strong>
+  <%= @monster.low_essence_magic %>
+</p>
+
+<p>
+  <strong>Runes:</strong>
+  <%= @monster.runes %>
+</p>
+
+<%= link_to 'Edit', edit_monster_path(@monster) %> |
+<%= link_to 'Back', monsters_path %> 

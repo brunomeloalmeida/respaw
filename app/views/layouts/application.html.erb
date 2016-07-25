@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Respaw Guild</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<div class="container">
+	<div class="jumbotron">
+		<h1 class="links_home"><%= link_to ("Respaw Guild"), welcome_index_path %></h1>
+	</div>
+	
+	<ol class="breadcrumb">
+	    <li class="links_telas"><%= link_to ("History Guild"), welcome_index_path %></li>
+	    <li class="links_telas"><%= link_to ("Members"), users_path %></li>
+	    <li class="links_telas"><%= link_to ("Monsters"), monsters_path %></li>
+	    <li class="links_telas"><%= link_to ("Gallery"), welcome_index_path %></li>
+	    <li class="links_telas"><%= link_to ("Contact"), welcome_index_path %></li>
+    </ol>
+<div class="container">
+	<div class="col-md-11">
+		<body>
+		<%= yield %>
+			
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+		</body>
+	</div>
+</div>
+</div>
+</html>
