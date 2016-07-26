@@ -1,101 +1,126 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-xs-6 col-sm-4">
+    <%= image_tag @monster.avatar.url(:thumb) %>
+  </div>
 
-<p>
-  <%= image_tag @monster.avatar.url(:thumb) %>
-  <hr>
-</p>
+  <div class="col-xs-6 col-sm-4">
+    <h2 id="monster_name"><%= @monster.name %></h2>
+    <% if @monster.star == 1 %>
+      <h2><%= image_tag('one_star') %></h2>
+    <% elsif @monster.star == 2 %>
+      <h2><%= image_tag('two_star') %></h2>
+    <% elsif @monster.star == 3 %>
+      <h2><%= image_tag('three_star') %></h2>
+    <% elsif @monster.star == 4 %>
+      <h2><%= image_tag('four_star') %></h2>
+    <% else %>
+      <h2><%= image_tag('five_star') %></h2>
+    <% end %>   
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @monster.name %>
-</p>
+  <div class="col-xs-6 col-sm-4" id="element_icon">
+    <% if @monster.element == 'Fire' %>
+      <h2><%= image_tag('Fire_Icon') %></h2>
+    <% elsif @monster.element == 'Water' %>
+      <h2><%= image_tag('Water_Icon') %></h2>
+    <% elsif @monster.element == 'Wind' %>
+      <h2><%= image_tag('Wind_Icon') %></h2>
+    <% elsif @monster.element == 'Dark' %>
+      <h2><%= image_tag('Dark_Icon') %></h2>
+    <% else %>
+      <h2><%= image_tag('Light_Icon') %></h2>
+    <% end %>  
+  </div>
+</div>
 
-<p>
-  <strong>Element:</strong>
-  <%= @monster.element %>
-</p>
+<hr>
 
-<p>
-  <strong>Star:</strong>
-  <%= @monster.star %>
-</p>
+<div id="show_monster">
+  <p>
+    <strong>Element:</strong>
+    <%= @monster.element %>
+  </p>
 
-<p>
-  <strong>Hp base:</strong>
-  <%= @monster.hp_base %>
-</p>
+  <p>
+    <strong>Hp base:</strong>
+    <%= @monster.hp_base %>
+  </p>
 
-<p>
-  <strong>Atk base:</strong>
-  <%= @monster.atk_base %>
-</p>
+  <p>
+    <strong>Atk base:</strong>
+    <%= @monster.atk_base %>
+  </p>
 
-<p>
-  <strong>Def base:</strong>
-  <%= @monster.def_base %>
-</p>
+  <p>
+    <strong>Def base:</strong>
+    <%= @monster.def_base %>
+  </p>
 
-<p>
-  <strong>Vel base:</strong>
-  <%= @monster.vel_base %>
-</p>
+  <p>
+    <strong>Vel base:</strong>
+    <%= @monster.vel_base %>
+  </p>
 
-<p>
-  <strong>Hp awake:</strong>
-  <%= @monster.hp_awake %>
-</p>
+  <p>
+    <strong>Hp awake:</strong>
+    <%= @monster.hp_awake %>
+  </p>
 
-<p>
-  <strong>Atk awake:</strong>
-  <%= @monster.atk_awake %>
-</p>
+  <p>
+    <strong>Atk awake:</strong>
+    <%= @monster.atk_awake %>
+  </p>
 
-<p>
-  <strong>Def awake:</strong>
-  <%= @monster.def_awake %>
-</p>
+  <p>
+    <strong>Def awake:</strong>
+    <%= @monster.def_awake %>
+  </p>
 
-<p>
-  <strong>Vel awake:</strong>
-  <%= @monster.vel_awake %>
-</p>
+  <p>
+    <strong>Vel awake:</strong>
+    <%= @monster.vel_awake %>
+  </p>
 
-<p>
-  <strong>High essence elemental:</strong>
-  <%= @monster.high_essence_elemental %>
-</p>
+  <p>
+    <strong>High essence elemental:</strong>
+    <%= @monster.high_essence_elemental %>
+  </p>
 
-<p>
-  <strong>Mid essence elemental:</strong>
-  <%= @monster.mid_essence_elemental %>
-</p>
+  <p>
+    <strong>Mid essence elemental:</strong>
+    <%= @monster.mid_essence_elemental %>
+  </p>
 
-<p>
-  <strong>Low essence elemental:</strong>
-  <%= @monster.low_essence_elemental %>
-</p>
+  <p>
+    <strong>Low essence elemental:</strong>
+    <%= @monster.low_essence_elemental %>
+  </p>
 
-<p>
-  <strong>High essence magic:</strong>
-  <%= @monster.high_essence_magic %>
-</p>
+  <p>
+    <strong>High essence magic:</strong>
+    <%= @monster.high_essence_magic %>
+  </p>
 
-<p>
-  <strong>Mid essence magic:</strong>
-  <%= @monster.mid_essence_magic %>
-</p>
+  <p>
+    <strong>Mid essence magic:</strong>
+    <%= @monster.mid_essence_magic %>
+  </p>
 
-<p>
-  <strong>Low essence magic:</strong>
-  <%= @monster.low_essence_magic %>
-</p>
+  <p>
+    <strong>Low essence magic:</strong>
+    <%= @monster.low_essence_magic %>
+  </p>
 
-<p>
-  <strong>Runes:</strong>
-  <%= @monster.runes %>
-</p>
+  <p>
+    <strong>Runes:</strong>
+    <%= @monster.runes %>
+  </p>
 
-<%  if current_summoner.id == 1 %>
-  <%= link_to 'Edit', edit_monster_path(@monster) %> |
-<% end %>
-<%= link_to 'Back', monsters_path %> 
+  <% if current_summoner %>
+    <%  if current_summoner.id == 1 %>
+      <%= link_to 'Edit', edit_monster_path(@monster) %> |
+    <% end %>
+  <% end %>
+  <%= link_to 'Back', monsters_path %> 
+</div>

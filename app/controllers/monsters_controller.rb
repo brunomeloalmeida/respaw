@@ -1,6 +1,6 @@
 class MonstersController < ApplicationController
   before_action :set_monster, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_summoner!
+  before_action :authenticate_summoner!, except: [:index, :show]
 
   # GET /monsters
   # GET /monsters.json
@@ -30,7 +30,7 @@ class MonstersController < ApplicationController
   # POST /monsters.json
   def create
     if current_summoner.id != 1
-      redirect_to welcome_index_path
+      format.html { redirect_to welcome_index_path, notice: 'Somente usuários autorizados' }
     else
       @monster = Monster.new(monster_params)
 
@@ -50,7 +50,7 @@ class MonstersController < ApplicationController
   # PATCH/PUT /monsters/1.json
   def update
     if current_summoner.id != 1
-      redirect_to welcome_index_path
+      format.html { redirect_to welcome_index_path, notice: 'Somente usuários autorizados' }
     else
       respond_to do |format|
         if @monster.update(monster_params)
@@ -68,7 +68,7 @@ class MonstersController < ApplicationController
   # DELETE /monsters/1.json
   def destroy
     if current_summoner.id != 1
-      redirect_to welcome_index_path
+      format.html { redirect_to welcome_index_path, notice: 'Somente usuários autorizados' }
     else
       @monster.destroy
       respond_to do |format|
