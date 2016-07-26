@@ -2,5 +2,14 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @monster %> |
-<%= link_to 'Back', monsters_path %>
+<div class="action">
+	<button type="f.submit" class="btn btn-primary"><%= 'Create' %></button>
+	
+	<%= link_to @monster do %>
+		<button type="button" class="btn btn-primary"><%= 'Show' %></button>
+	<% end %>
+
+	<%= link_to monsters_path  do %>
+		<button type="button" class="btn btn-primary"><%= 'Back' %></button>
+	<% end %>
+</div>

@@ -8,17 +8,21 @@
 </head>
 <div class="container">
 	<div class="jumbotron">
-		<div id="menu-logar">
-			<ol class="breadcrumb">
-				<% if summoner_signed_in? %>
-					<li class="links_home"><%= link_to(('Logout'), destroy_summoner_session_path, :method => :delete) %></li>
-				<% else %>
-					<li class="links_home"><%= link_to ("Sign up"), new_summoner_registration_path %> </li>
-					<li class="links_home"><%= link_to ("Sign in"), new_summoner_session_path %> </li>
-				<% end %>
-			</ol>
+		<div class="row">
+			<div class="col-xs-12 col-md-8">
+				<h1 class="links_home"><%= link_to ("Respaw Guild"), welcome_index_path %></h1>
+			</div>
+			<div  id="menu-logar" class="col-xs-6 col-md-4">
+				<ol class="breadcrumb">
+					<% if summoner_signed_in? %>
+						<li class="links_home"><%= link_to(('Logout'), destroy_summoner_session_path, :method => :delete) %></li>
+					<% else %>
+						<li class="links_home"><%= link_to ("Sign up"), new_summoner_registration_path %> </li>
+						<li class="links_home"><%= link_to ("Sign in"), new_summoner_session_path %> </li>
+					<% end %>
+				</ol>
+			</div>
 		</div>
-		<h1 class="links_home"><%= link_to ("Respaw Guild"), welcome_index_path %></h1>
 	</div>
 	
 	<ol class="breadcrumb">
