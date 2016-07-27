@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :my_monsters
+  resources :my_monsters
   devise_for :summoners
   resources :monsters
   resources :users

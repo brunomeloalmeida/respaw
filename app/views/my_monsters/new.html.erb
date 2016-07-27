@@ -1,0 +1,12 @@
+
+<p id="notice"><%= notice %></p>
+
+<body>
+    <%  @monsters.each do |monster| %>
+      <ul id="monster_grid">
+
+          <li><%= image_tag monster.avatar.url(:thumb), alt: monster.name %><br>
+
+      </ul>
+     <% end %>
+</body>

@@ -1,0 +1,21 @@
+
+<p id="notice"><%= notice %></p>
+
+<body>
+    <%  @my_monsters.each do |monster| %>
+      <ul id="monster_grid">
+        <%= link_to monster_path(monster) do %>
+          <li><%= image_tag monster.avatar.url(:thumb), alt: monster.name %><br>
+          <p><%= monster.name %></p></li>
+        <% end %>
+      </ul>
+     <% end %>
+</body>
+
+<br><br>
+<% if current_summoner %>
+   <div class="button_add">
+     <%= button_to new_my_monster_path, :class => "btn btn-default", :method => :get do %>
+        <span class="glyphicon glyphicon-plus"></span> <% end %>
+   </div>
+<% end %>

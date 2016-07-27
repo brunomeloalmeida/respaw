@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725171446) do
+ActiveRecord::Schema.define(version: 20160727165046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,30 @@ ActiveRecord::Schema.define(version: 20160725171446) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
+
+  create_table "my_monsters", force: :cascade do |t|
+    t.integer  "monster_id"
+    t.integer  "level"
+    t.integer  "hp_base"
+    t.integer  "hp_rune"
+    t.integer  "atk_base"
+    t.integer  "atk_rune"
+    t.integer  "def_base"
+    t.integer  "def_rune"
+    t.integer  "vel_base"
+    t.integer  "vel_rune"
+    t.string   "cr"
+    t.string   "cd"
+    t.string   "res"
+    t.string   "acc"
+    t.string   "runes"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "summoner_id"
+  end
+
+  add_index "my_monsters", ["monster_id"], name: "index_my_monsters_on_monster_id", using: :btree
+  add_index "my_monsters", ["summoner_id"], name: "index_my_monsters_on_summoner_id", using: :btree
 
   create_table "summoners", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -75,4 +99,6 @@ ActiveRecord::Schema.define(version: 20160725171446) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "my_monsters", "monsters"
+  add_foreign_key "my_monsters", "summoners"
 end

@@ -1,0 +1,81 @@
+<%= form_for(@my_monster) do |f| %>
+  <% if @my_monster.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@my_monster.errors.count, "error") %> prohibited this my_monster from being saved:</h2>
+
+      <ul>
+      <% @my_monster.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :monster_id %><br>
+    <%= f.text_field :monster_id %>
+  </div>
+  <div class="field">
+    <%= f.label :summoner_id %><br>
+    <%= f.text_field :summoner_id %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br>
+    <%= f.number_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :hp_base %><br>
+    <%= f.number_field :hp_base %>
+  </div>
+  <div class="field">
+    <%= f.label :hp_rune %><br>
+    <%= f.number_field :hp_rune %>
+  </div>
+  <div class="field">
+    <%= f.label :atk_base %><br>
+    <%= f.number_field :atk_base %>
+  </div>
+  <div class="field">
+    <%= f.label :atk_rune %><br>
+    <%= f.number_field :atk_rune %>
+  </div>
+  <div class="field">
+    <%= f.label :def_base %><br>
+    <%= f.number_field :def_base %>
+  </div>
+  <div class="field">
+    <%= f.label :def_rune %><br>
+    <%= f.number_field :def_rune %>
+  </div>
+  <div class="field">
+    <%= f.label :vel_base %><br>
+    <%= f.number_field :vel_base %>
+  </div>
+  <div class="field">
+    <%= f.label :vel_rune %><br>
+    <%= f.number_field :vel_rune %>
+  </div>
+  <div class="field">
+    <%= f.label :cr %><br>
+    <%= f.text_field :cr %>
+  </div>
+  <div class="field">
+    <%= f.label :cd %><br>
+    <%= f.text_field :cd %>
+  </div>
+  <div class="field">
+    <%= f.label :res %><br>
+    <%= f.text_field :res %>
+  </div>
+  <div class="field">
+    <%= f.label :acc %><br>
+    <%= f.text_field :acc %>
+  </div>
+  <div class="field">
+    <%= f.label :runes %><br>
+    <%= f.text_field :runes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
