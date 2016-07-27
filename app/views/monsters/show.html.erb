@@ -37,85 +37,127 @@
 <hr>
 
 <div id="show_monster">
-  <p>
-    <strong>Element:</strong>
-    <%= @monster.element %>
-  </p>
+  <div class="row">
+    <div class="col-md-6 status_align">
+      <p>
+        <% if @monster.star == 1 %>
+          <strong>Level 15</strong>
+        <% elsif @monster.star == 2 %>
+          <strong>Level 20</strong>
+        <% elsif @monster.star == 3 %>
+          <strong>Level 25</strong>
+        <% elsif @monster.star == 4 %>
+          <strong>Level 30</strong>
+        <% else %>
+          <strong>Level 35</strong>
+        <% end %>
+      </p>
+      <p>
+        <strong>Hp base:</strong>
+        <%= @monster.hp_base %>
+      </p>
 
-  <p>
-    <strong>Hp base:</strong>
-    <%= @monster.hp_base %>
-  </p>
 
-  <p>
-    <strong>Atk base:</strong>
-    <%= @monster.atk_base %>
-  </p>
+      <p>
+        <strong>Atk base:</strong>
+        <%= @monster.atk_base %>
+      </p>
 
-  <p>
-    <strong>Def base:</strong>
-    <%= @monster.def_base %>
-  </p>
+      <p>
+        <strong>Def base:</strong>
+        <%= @monster.def_base %>
+      </p>
 
-  <p>
-    <strong>Vel base:</strong>
-    <%= @monster.vel_base %>
-  </p>
+      <p>
+        <strong>Vel base:</strong>
+        <%= @monster.vel_base %>
+      </p>
+    </div>
 
-  <p>
-    <strong>Hp awake:</strong>
-    <%= @monster.hp_awake %>
-  </p>
+    <div class="col-md-6 status_align"> 
+     <p>
+        <% if @monster.star == 1 %>
+          <strong>Level 20</strong>
+        <% elsif @monster.star == 2 %>
+          <strong>Level 25</strong>
+        <% elsif @monster.star == 3 %>
+          <strong>Level 30</strong>
+        <% elsif @monster.star == 4 %>
+          <strong>Level 35</strong>
+        <% else %>
+          <strong>Level 40</strong>
+        <% end %>
+      </p> 
+      <p>
+        <strong>Hp awake:</strong>
+        <%= @monster.hp_awake %>
+      </p>
 
-  <p>
-    <strong>Atk awake:</strong>
-    <%= @monster.atk_awake %>
-  </p>
+      <p>
+        <strong>Atk awake:</strong>
+        <%= @monster.atk_awake %>
+      </p>
 
-  <p>
-    <strong>Def awake:</strong>
-    <%= @monster.def_awake %>
-  </p>
+      <p>
+        <strong>Def awake:</strong>
+        <%= @monster.def_awake %>
+      </p>
 
-  <p>
-    <strong>Vel awake:</strong>
-    <%= @monster.vel_awake %>
-  </p>
+      <p>
+        <strong>Vel awake:</strong>
+        <%= @monster.vel_awake %>
+      </p>
+    </div>
+  </div>
 
-  <p>
-    <strong>High essence elemental:</strong>
-    <%= @monster.high_essence_elemental %>
-  </p>
+  <hr>
+  <div id="informations">
+    <% if @monster.high_essence_elemental != 0 %>
+      <p>
+        <strong>High essence elemental:</strong>
+        <%= @monster.high_essence_elemental %>
+      </p>
+    <% end %>
+    <% if @monster.mid_essence_elemental != 0 %>
+      <p>
+        <strong>Mid essence elemental:</strong>
+        <%= @monster.mid_essence_elemental %>
+      </p>
+    <% end %>
+    <% if @monster.low_essence_elemental != 0 %>
+      <p>
+        <strong>Low essence elemental:</strong>
+        <%= @monster.low_essence_elemental %>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>Mid essence elemental:</strong>
-    <%= @monster.mid_essence_elemental %>
-  </p>
+    <% if @monster.high_essence_magic != 0 %>
+      <p>
+        <strong>High essence magic:</strong>
+        <%= @monster.high_essence_magic %>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>Low essence elemental:</strong>
-    <%= @monster.low_essence_elemental %>
-  </p>
+    <% if @monster.mid_essence_magic != 0 %>
+      <p>
+        <strong>Mid essence magic:</strong>
+        <%= @monster.mid_essence_magic %>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>High essence magic:</strong>
-    <%= @monster.high_essence_magic %>
-  </p>
+    <% if @monster.low_essence_magic != 0 %>
+      <p>
+        <strong>Low essence magic:</strong>
+        <%= @monster.low_essence_magic %>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>Mid essence magic:</strong>
-    <%= @monster.mid_essence_magic %>
-  </p>
+    <p>
+      <strong>Runes:</strong>
+      <%= @monster.runes %>
+    </p>
 
-  <p>
-    <strong>Low essence magic:</strong>
-    <%= @monster.low_essence_magic %>
-  </p>
-
-  <p>
-    <strong>Runes:</strong>
-    <%= @monster.runes %>
-  </p>
+  <br>
 
   <% if current_summoner %>
     <%  if current_summoner.id == 1 %>
@@ -132,4 +174,5 @@
     <button type="button" class="btn btn-primary"><%= 'Back' %></button>
   <% end %>
     </div>
+  </div>
 </div>
