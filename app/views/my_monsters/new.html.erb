@@ -1,12 +1,5 @@
+<h1>New My Monster</h1>
 
-<p id="notice"><%= notice %></p>
+<%= render 'form' %>
 
-<body>
-    <%  @monsters.each do |monster| %>
-      <ul id="monster_grid">
-
-          <li><%= image_tag monster.avatar.url(:thumb), alt: monster.name %><br>
-
-      </ul>
-     <% end %>
-</body>
+<%= link_to 'Back', my_monsters_path %>

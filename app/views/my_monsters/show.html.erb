@@ -1,84 +1,123 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-xs-6 col-sm-4">
+    <%= image_tag @my_monster.monster.avatar.url(:thumb) %>
+  </div>
 
-<p>
-  <strong>Monster:</strong>
-  <%= @my_monster.monster %>
-</p>
+  <div class="col-xs-6 col-sm-4">
+    <h2 id="monster_name"><%= @my_monster.monster.name %></h2>
+    <% if @my_monster.monster.star == 1 %>
+      <h2><%= image_tag('one_star.png') %></h2>
+    <% elsif @my_monster.monster.star == 2 %>
+      <h2><%= image_tag('two_star.png') %></h2>
+    <% elsif @my_monster.monster.star == 3 %>
+      <h2><%= image_tag('three_star.png') %></h2>
+    <% elsif @my_monster.monster.star == 4 %>
+      <h2><%= image_tag('four_star.png') %></h2>
+    <% else %>
+      <h2><%= image_tag('five_star.png') %></h2>
+    <% end %>   
+  </div>
 
-<p>
-  <strong>Summoner:</strong>
-  <%= @my_monster.summoner_id %>
-</p>
+  <div class="col-xs-6 col-sm-4" id="element_icon">
+    <% if @my_monster.monster.element == 'Fire' %>
+      <h2><%= image_tag('Fire_Icon.png') %></h2>
+    <% elsif @my_monster.monster.element == 'Water' %>
+      <h2><%= image_tag('Water_Icon.png') %></h2>
+    <% elsif @my_monster.monster.element == 'Wind' %>
+      <h2><%= image_tag('Wind_Icon.png') %></h2>
+    <% elsif @my_monster.monster.element == 'Dark' %>
+      <h2><%= image_tag('Dark_Icon.png') %></h2>
+    <% else %>
+      <h2><%= image_tag('Light_Icon.png') %></h2>
+    <% end %>  
+  </div>
+</div>
 
-<p>
-  <strong>Level:</strong>
-  <%= @my_monster.level %>
-</p>
+<hr>
 
-<p>
-  <strong>Hp base:</strong>
-  <%= @my_monster.hp_base %>
-</p>
+<div id="show_monster">
+  <div class="row">
+    <div class="col-md-6 status_align">
 
-<p>
-  <strong>Hp rune:</strong>
-  <%= @my_monster.hp_rune %>
-</p>
+      <p>
+        <strong>Level:</strong>
+        <%= @my_monster.level %>
+      </p>
 
-<p>
-  <strong>Atk base:</strong>
-  <%= @my_monster.atk_base %>
-</p>
+      <p>
+        <strong>Hp base:</strong>
+        <%= @my_monster.hp_base %>
+      </p>
 
-<p>
-  <strong>Atk rune:</strong>
-  <%= @my_monster.atk_rune %>
-</p>
+      <p>
+        <strong>Hp rune:</strong>
+        <%= @my_monster.hp_rune %>
+      </p>
 
-<p>
-  <strong>Def base:</strong>
-  <%= @my_monster.def_base %>
-</p>
+      <p>
+        <strong>Atk base:</strong>
+        <%= @my_monster.atk_base %>
+      </p>
 
-<p>
-  <strong>Def rune:</strong>
-  <%= @my_monster.def_rune %>
-</p>
+      <p>
+        <strong>Atk rune:</strong>
+        <%= @my_monster.atk_rune %>
+      </p>
 
-<p>
-  <strong>Vel base:</strong>
-  <%= @my_monster.vel_base %>
-</p>
+      <p>
+        <strong>Def base:</strong>
+        <%= @my_monster.def_base %>
+      </p>
 
-<p>
-  <strong>Vel rune:</strong>
-  <%= @my_monster.vel_rune %>
-</p>
+      <p>
+        <strong>Def rune:</strong>
+        <%= @my_monster.def_rune %>
+      </p>
+    </div>   
 
-<p>
-  <strong>Cr:</strong>
-  <%= @my_monster.cr %>
-</p>
+    <div class="col-md-6 status_align">  
+      <p>
+        <strong>Vel base:</strong>
+        <%= @my_monster.vel_base %>
+      </p>
 
-<p>
-  <strong>Cd:</strong>
-  <%= @my_monster.cd %>
-</p>
+      <p>
+        <strong>Vel rune:</strong>
+        <%= @my_monster.vel_rune %>
+      </p>
 
-<p>
-  <strong>Res:</strong>
-  <%= @my_monster.res %>
-</p>
+      <p>
+        <strong>Cr:</strong>
+        <%= @my_monster.cr %>
+      </p>
 
-<p>
-  <strong>Acc:</strong>
-  <%= @my_monster.acc %>
-</p>
+      <p>
+        <strong>Cd:</strong>
+        <%= @my_monster.cd %>
+      </p>
 
-<p>
-  <strong>Runes:</strong>
-  <%= @my_monster.runes %>
-</p>
+      <p>
+        <strong>Res:</strong>
+        <%= @my_monster.res %>
+      </p>
 
-<%= link_to 'Edit', edit_my_monster_path(@my_monster) %> |
-<%= link_to 'Back', my_monsters_path %>
+      <p>
+        <strong>Acc:</strong>
+        <%= @my_monster.acc %>
+      </p>
+
+      <p>
+        <strong>Runes:</strong>
+        <%= @my_monster.runes %>
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div id="informations">
+    <%= link_to 'Edit', edit_my_monster_path(@my_monster) %> |
+    <%= link_to 'Back', my_monsters_path %>
+  </div>
+</div>

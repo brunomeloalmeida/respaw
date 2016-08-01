@@ -5,7 +5,6 @@ class MyMonstersController < ApplicationController
   # GET /my_monsters.json
   def index
     @my_monsters = MyMonster.where(summoner_id: current_summoner.id)
-    @monsters = Monster.all
   end
 
   # GET /my_monsters/1
@@ -16,17 +15,19 @@ class MyMonstersController < ApplicationController
   # GET /my_monsters/new
   def new
     @my_monster = MyMonster.new
-    @monsters = Monster.all    
+    @monsters = Monster.all
   end
 
   # GET /my_monsters/1/edit
   def edit
+    @monsters = Monster.all
   end
 
   # POST /my_monsters
   # POST /my_monsters.json
   def create
     @my_monster = MyMonster.new(my_monster_params)
+    @my_monster.summoner_id = current_summoner.id
 
     respond_to do |format|
       if @my_monster.save
@@ -71,6 +72,6 @@ class MyMonstersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def my_monster_params
-      params.require(:my_monster).permit(:monster_id, :summoner_id, :level, :hp_base, :hp_rune, :atk_base, :atk_rune, :def_base, :def_rune, :vel_base, :vel_rune, :cr, :cd, :res, :acc, :runes)
+      params.require(:my_monster).permit(:monster_id, :level, :hp_base, :hp_rune, :atk_base, :atk_rune, :def_base, :def_rune, :vel_base, :vel_rune, :cr, :cd, :res, :acc, :runes)
     end
 end

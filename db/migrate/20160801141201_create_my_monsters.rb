@@ -2,6 +2,7 @@ class CreateMyMonsters < ActiveRecord::Migration
   def change
     create_table :my_monsters do |t|
       t.references :monster, index: true, foreign_key: true
+      t.references :summoner, index: true, foreign_key: true
       t.integer :level
       t.integer :hp_base
       t.integer :hp_rune

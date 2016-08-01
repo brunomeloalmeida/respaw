@@ -18,7 +18,7 @@ class MyMonstersControllerTest < ActionController::TestCase
 
   test "should create my_monster" do
     assert_difference('MyMonster.count') do
-      post :create, my_monster: { acc: @my_monster.acc, atk_base: @my_monster.atk_base, atk_rune: @my_monster.atk_rune, cd: @my_monster.cd, cr: @my_monster.cr, def_base: @my_monster.def_base, def_rune: @my_monster.def_rune, hp_base: @my_monster.hp_base, hp_rune: @my_monster.hp_rune, level: @my_monster.level, monster_id: @my_monster.monster_id, res: @my_monster.res, runes: @my_monster.runes, vel_base: @my_monster.vel_base, vel_rune: @my_monster.vel_rune }
+      post :create, my_monster: { acc: @my_monster.acc, atk_base: @my_monster.atk_base, atk_rune: @my_monster.atk_rune, cd: @my_monster.cd, cr: @my_monster.cr, def_base: @my_monster.def_base, def_rune: @my_monster.def_rune, hp_base: @my_monster.hp_base, hp_rune: @my_monster.hp_rune, level: @my_monster.level, monster_id: @my_monster.monster_id, res: @my_monster.res, runes: @my_monster.runes, summoner_id: @my_monster.summoner_id, vel_base: @my_monster.vel_base, vel_rune: @my_monster.vel_rune }
     end
 
     assert_redirected_to my_monster_path(assigns(:my_monster))
@@ -35,7 +35,7 @@ class MyMonstersControllerTest < ActionController::TestCase
   end
 
   test "should update my_monster" do
-    patch :update, id: @my_monster, my_monster: { acc: @my_monster.acc, atk_base: @my_monster.atk_base, atk_rune: @my_monster.atk_rune, cd: @my_monster.cd, cr: @my_monster.cr, def_base: @my_monster.def_base, def_rune: @my_monster.def_rune, hp_base: @my_monster.hp_base, hp_rune: @my_monster.hp_rune, level: @my_monster.level, monster_id: @my_monster.monster_id, res: @my_monster.res, runes: @my_monster.runes, vel_base: @my_monster.vel_base, vel_rune: @my_monster.vel_rune }
+    patch :update, id: @my_monster, my_monster: { acc: @my_monster.acc, atk_base: @my_monster.atk_base, atk_rune: @my_monster.atk_rune, cd: @my_monster.cd, cr: @my_monster.cr, def_base: @my_monster.def_base, def_rune: @my_monster.def_rune, hp_base: @my_monster.hp_base, hp_rune: @my_monster.hp_rune, level: @my_monster.level, monster_id: @my_monster.monster_id, res: @my_monster.res, runes: @my_monster.runes, summoner_id: @my_monster.summoner_id, vel_base: @my_monster.vel_base, vel_rune: @my_monster.vel_rune }
     assert_redirected_to my_monster_path(assigns(:my_monster))
   end
 

@@ -1,21 +1,61 @@
-
 <p id="notice"><%= notice %></p>
 
-<body>
-    <%  @my_monsters.each do |monster| %>
-      <ul id="monster_grid">
-        <%= link_to monster_path(monster) do %>
-          <li><%= image_tag monster.avatar.url(:thumb), alt: monster.name %><br>
-          <p><%= monster.name %></p></li>
-        <% end %>
-      </ul>
-     <% end %>
-</body>
+<h1>Listing My Monsters</h1>
 
-<br><br>
-<% if current_summoner %>
-   <div class="button_add">
-     <%= button_to new_my_monster_path, :class => "btn btn-default", :method => :get do %>
-        <span class="glyphicon glyphicon-plus"></span> <% end %>
-   </div>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Monster</th>
+      <th>Level</th>
+      <th>Hp base</th>
+      <th>Hp rune</th>
+      <th>Atk base</th>
+      <th>Atk rune</th>
+      <th>Def base</th>
+      <th>Def rune</th>
+      <th>Vel base</th>
+      <th>Vel rune</th>
+      <th>Cr</th>
+      <th>Cd</th>
+      <th>Res</th>
+      <th>Acc</th>
+      <th>Runes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @my_monsters.each do |my_monster| %>
+      <tr>
+        <td><%= my_monster.monster.name %></td>
+        <td><%= my_monster.level %></td>
+        <td><%= my_monster.hp_base %></td>
+        <td><%= my_monster.hp_rune %></td>
+        <td><%= my_monster.atk_base %></td>
+        <td><%= my_monster.atk_rune %></td>
+        <td><%= my_monster.def_base %></td>
+        <td><%= my_monster.def_rune %></td>
+        <td><%= my_monster.vel_base %></td>
+        <td><%= my_monster.vel_rune %></td>
+        <td><%= my_monster.cr %></td>
+        <td><%= my_monster.cd %></td>
+        <td><%= my_monster.res %></td>
+        <td><%= my_monster.acc %></td>
+        <td><%= my_monster.runes %></td>
+        <td><%= link_to my_monster do %>
+          <span class="glyphicon glyphicon-eye-open"></span><% end %> 
+        </td>
+        <td><%= link_to edit_my_monster_path(my_monster) do %>
+          <span class="glyphicon glyphicon-pencil"></span><% end %>
+        </td>
+        <td><%= link_to my_monster, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="glyphicon glyphicon-remove"></span><% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New My monster', new_my_monster_path %>

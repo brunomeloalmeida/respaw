@@ -161,7 +161,7 @@
 
   <% if current_summoner %>
     <%  if current_summoner.id == 1 %>
-    <div class="action"> 
+      <div class="action"> 
       <%= link_to edit_monster_path(@monster)  do %>
         <button type="button" class="btn btn-primary"><%= 'Editar' %></button>
       <% end %>
