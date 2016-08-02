@@ -3,11 +3,11 @@
 <%= render 'form' %>
 
 <div class="action">
-	<%= link_to @monster do %>
+	<%= link_to @monster, class: 'decoration_button' do %>
 		<button type="button" class="btn btn-primary"><%= 'Show' %></button>
 	<% end %>
 
-	<%= link_to monsters_path  do %>
+	<%= link_to monsters_path, class: 'decoration_button'  do %>
 		<button type="button" class="btn btn-primary"><%= 'Back' %></button>
 	<% end %>
 </div>

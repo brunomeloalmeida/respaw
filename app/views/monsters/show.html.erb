@@ -202,15 +202,15 @@
   <% if current_summoner %>
     <%  if current_summoner.id == 1 %>
       <div class="action"> 
-        <%= link_to edit_monster_path(@monster)  do %>
+        <%= link_to edit_monster_path(@monster), class: 'decoration_button' do %>
           <button type="button" class="btn btn-primary"><%= 'Editar' %></button>
         <% end %>
-        <%= link_to @monster, method: :delete, data: { confirm: 'Are you sure?' }  do %>
+        <%= link_to @monster, method: :delete, data: { confirm: 'Are you sure?' }, class: 'decoration_button'  do %>
           <button type="button" class="btn btn-primary"><%= 'Excluir' %></button>
         <% end %>
     <% end %>
   <% end %>
-        <%= link_to monsters_path  do %>
+        <%= link_to monsters_path, class: 'decoration_button'  do %>
           <button type="button" class="btn btn-primary"><%= 'Back' %></button>
         <% end %>
     </div>

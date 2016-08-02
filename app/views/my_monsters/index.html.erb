@@ -25,7 +25,7 @@
       <tr>
         <td><%= my_monster.monster.name %></td>
         <td><%= my_monster.level %></td>
-        <td><p><%= my_monster.hp_base + my_monster.hp_rune%></p></td>
+        <td><%= my_monster.hp_base + my_monster.hp_rune%></td>
         <td><%= my_monster.atk_base + my_monster.atk_rune%></td>
         <td><%= my_monster.def_base + my_monster.def_rune%></td>
         <td><%= my_monster.vel_base + my_monster.vel_rune%></td>
@@ -34,13 +34,13 @@
         <td><%= my_monster.res %></td>
         <td><%= my_monster.acc %></td>
         <td><%= my_monster.runes %></td>
-        <td><%= link_to my_monster do %>
+        <td><%= link_to my_monster, class: 'decoration_button' do %>
           <span class="glyphicon glyphicon-eye-open"></span><% end %> 
         </td>
-        <td><%= link_to edit_my_monster_path(my_monster) do %>
+        <td><%= link_to edit_my_monster_path(my_monster), class: 'decoration_button' do %>
           <span class="glyphicon glyphicon-pencil"></span><% end %>
         </td>
-        <td><%= link_to my_monster, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <td><%= link_to my_monster, method: :delete, data: { confirm: 'Are you sure?' }, class: 'decoration_button' do %>
           <span class="glyphicon glyphicon-remove"></span><% end %>
         </td>
       </tr>
@@ -50,4 +50,9 @@
 
 <br>
 
-<%= link_to 'New My monster', new_my_monster_path %>
+<div class="button_add">
+  <%= button_to new_my_monster_path, :class => "btn btn-default", :method => :get do %>
+    <span class="glyphicon glyphicon-plus"></span> 
+  <% end %>
+</div>
+

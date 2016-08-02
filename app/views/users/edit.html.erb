@@ -2,5 +2,12 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="action">
+	<%= link_to @user, class: 'decoration_button' do %>
+		<button type="button" class="btn btn-primary"><%= 'Show' %></button>
+	<% end %>
+
+	<%= link_to users_path, class: 'decoration_button'  do %>
+		<button type="button" class="btn btn-primary"><%= 'Back' %></button>
+	<% end %>
+</div>

@@ -2,4 +2,8 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', users_path %>
+<div class="action">	
+	<%= link_to users_path  do %>
+		<button type="button" class="btn btn-primary"><%= 'Back' %></button>
+	<% end %>
+</div>

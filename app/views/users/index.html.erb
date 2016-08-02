@@ -20,13 +20,13 @@
         <td><%= user.user_name %></td>
         <td><%= user.email %></td>
         <td><%= user.level %></td>
-        <td><%= link_to user do %>
+        <td><%= link_to user, class: 'decoration_button' do %>
           <span class="glyphicon glyphicon-eye-open"></span><% end %> 
         </td>
-        <td><%= link_to edit_user_path(user) do %>
+        <td><%= link_to edit_user_path(user), class: 'decoration_button' do %>
           <span class="glyphicon glyphicon-pencil"></span><% end %>
         </td>
-        <td><%= link_to user, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <td><%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'decoration_button' do %>
           <span class="glyphicon glyphicon-remove"></span><% end %>
         </td>
       </tr>

@@ -27,7 +27,7 @@
     <%= f.label :level %><br>
     <%= f.select( "level", options_for_select((1..40), @user.level), {include_blank: "Selecione"}) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+    <button type="f.submit" class="btn btn-primary"><%= 'Create' %></button>
   </div>
 <% end %>
