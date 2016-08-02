@@ -7,14 +7,10 @@
     <tr>
       <th>Monster</th>
       <th>Level</th>
-      <th>Hp base</th>
-      <th>Hp rune</th>
-      <th>Atk base</th>
-      <th>Atk rune</th>
-      <th>Def base</th>
-      <th>Def rune</th>
-      <th>Vel base</th>
-      <th>Vel rune</th>
+      <th>Hp</th>
+      <th>Atk</th>
+      <th>Def</th>
+      <th>Vel</th>
       <th>Cr</th>
       <th>Cd</th>
       <th>Res</th>
@@ -29,14 +25,10 @@
       <tr>
         <td><%= my_monster.monster.name %></td>
         <td><%= my_monster.level %></td>
-        <td><%= my_monster.hp_base %></td>
-        <td><%= my_monster.hp_rune %></td>
-        <td><%= my_monster.atk_base %></td>
-        <td><%= my_monster.atk_rune %></td>
-        <td><%= my_monster.def_base %></td>
-        <td><%= my_monster.def_rune %></td>
-        <td><%= my_monster.vel_base %></td>
-        <td><%= my_monster.vel_rune %></td>
+        <td><p><%= my_monster.hp_base + my_monster.hp_rune%></p></td>
+        <td><%= my_monster.atk_base + my_monster.atk_rune%></td>
+        <td><%= my_monster.def_base + my_monster.def_rune%></td>
+        <td><%= my_monster.vel_base + my_monster.vel_rune%></td>
         <td><%= my_monster.cr %></td>
         <td><%= my_monster.cd %></td>
         <td><%= my_monster.res %></td>

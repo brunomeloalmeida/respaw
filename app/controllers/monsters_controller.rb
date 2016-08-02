@@ -86,6 +86,8 @@ class MonstersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def monster_params
-      params.require(:monster).permit(:name, :element, :star, :hp_base, :atk_base, :def_base, :vel_base, :hp_awake, :atk_awake, :def_awake, :vel_awake, :high_essence_elemental, :mid_essence_elemental, :low_essence_elemental, :high_essence_magic, :mid_essence_magic, :low_essence_magic, :runes, :avatar)
+      params.require(:monster).permit(:name, :element, :star, :hp_base, :atk_base, :def_base, :vel_base, :cr, 
+        :cd, :res, :acc, :hp_awake, :atk_awake, :def_awake, :vel_awake, :cr_awake, :cd_awake, :res_awake, :acc_awake, 
+        :high_essence_elemental, :mid_essence_elemental, :low_essence_elemental, :high_essence_magic, :mid_essence_magic, :low_essence_magic, :runes, :avatar)
     end
 end

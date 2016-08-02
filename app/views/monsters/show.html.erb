@@ -72,6 +72,26 @@
         <strong>Vel base:</strong>
         <%= @monster.vel_base %>
       </p>
+
+      <p>
+        <strong>Cr base:</strong>
+        <%= @monster.cr %>
+      </p>
+
+      <p>
+        <strong>Cd base:</strong>
+        <%= @monster.cd %>
+      </p>
+
+      <p>
+        <strong>Res base:</strong>
+        <%= @monster.res %>
+      </p>
+
+      <p>
+        <strong>Acc base:</strong>
+        <%= @monster.acc %>
+      </p>
     </div>
 
     <div class="col-md-6 status_align"> 
@@ -106,6 +126,26 @@
       <p>
         <strong>Vel awake:</strong>
         <%= @monster.vel_awake %>
+      </p>
+
+      <p>
+        <strong>Cr awake:</strong>
+        <%= @monster.cr_awake %>
+      </p>
+
+      <p>
+        <strong>Cd awake:</strong>
+        <%= @monster.cd_awake %>
+      </p>
+
+      <p>
+        <strong>Res awake:</strong>
+        <%= @monster.res_awake %>
+      </p>
+
+      <p>
+        <strong>Acc awake:</strong>
+        <%= @monster.acc_awake %>
       </p>
     </div>
   </div>
@@ -162,17 +202,17 @@
   <% if current_summoner %>
     <%  if current_summoner.id == 1 %>
       <div class="action"> 
-      <%= link_to edit_monster_path(@monster)  do %>
-        <button type="button" class="btn btn-primary"><%= 'Editar' %></button>
-      <% end %>
-      <%= link_to @monster, method: :delete, data: { confirm: 'Are you sure?' }  do %>
-        <button type="button" class="btn btn-primary"><%= 'Excluir' %></button>
-      <% end %>
+        <%= link_to edit_monster_path(@monster)  do %>
+          <button type="button" class="btn btn-primary"><%= 'Editar' %></button>
+        <% end %>
+        <%= link_to @monster, method: :delete, data: { confirm: 'Are you sure?' }  do %>
+          <button type="button" class="btn btn-primary"><%= 'Excluir' %></button>
+        <% end %>
     <% end %>
   <% end %>
-  <%= link_to monsters_path  do %>
-    <button type="button" class="btn btn-primary"><%= 'Back' %></button>
-  <% end %>
+        <%= link_to monsters_path  do %>
+          <button type="button" class="btn btn-primary"><%= 'Back' %></button>
+        <% end %>
     </div>
   </div>
 </div>

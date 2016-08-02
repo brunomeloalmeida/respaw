@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801141201) do
+ActiveRecord::Schema.define(version: 20160802142025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20160801141201) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "cr"
+    t.string   "cd"
+    t.string   "res"
+    t.string   "acc"
+    t.string   "cr_awake"
+    t.string   "cd_awake"
+    t.string   "res_awake"
+    t.string   "acc_awake"
   end
 
   create_table "my_monsters", force: :cascade do |t|

@@ -35,15 +35,16 @@
 	    	<li class="links_telas"><%= link_to ('My Monsters'), my_monsters_path %></li>
 	    <% end %>
     </ol>
-<div class="container">
-	<div class="col-md-11">
-		<body>
+
+	<body>
 		<%= yield %>
 			
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-		</body>
-	</div>
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+	</body>
+
 </div>
+<div class="footer">
+	<p>Designed and built by Bruno Melo de Almeida</p>
 </div>
 </html>
