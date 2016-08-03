@@ -21,9 +21,11 @@
 </p>
 
 <div class="action"> 
+  <% if current_summoner.email == 'bruno.melo@example.com' %>
     <%= link_to edit_user_path(@user), class: 'decoration_button' do %>
         <button type="button" class="btn btn-primary"><%= 'Editar' %></button>
     <% end %>
+  <% end %>
 	<%= link_to users_path, class: 'decoration_button'  do %>
         <button type="button" class="btn btn-primary"><%= 'Back' %></button>
     <% end %>

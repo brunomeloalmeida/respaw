@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<div class="container">
+<div class="container-fluid">
 	<div class="jumbotron">
 		<div class="row">
 			<div class="col-xs-12 col-md-8">
@@ -35,14 +35,14 @@
 	    	<li class="links_telas"><%= link_to ('My Monsters'), my_monsters_path %></li>
 	    <% end %>
     </ol>
-
-	<body>
-		<%= yield %>
-			
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-	</body>
-
+    <div class="container">
+		<body>
+			<%= yield %>
+				
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+		</body>
+	</div>
 </div>
 <div class="footer">
 	<p>Designed and built by Bruno Melo de Almeida</p>

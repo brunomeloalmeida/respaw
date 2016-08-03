@@ -15,7 +15,7 @@ class MonstersController < ApplicationController
 
   # GET /monsters/new
   def new
-    if current_summoner.id != 1
+    if current_summoner.email != 'bruno.melo@example.com'
       redirect_to welcome_index_path
     else
       @monster = Monster.new
@@ -29,7 +29,7 @@ class MonstersController < ApplicationController
   # POST /monsters
   # POST /monsters.json
   def create
-    if current_summoner.id != 1
+    if current_summoner.email != 'bruno.melo@example.com'
       format.html { redirect_to welcome_index_path, notice: 'Somente usuários autorizados' }
     else
       @monster = Monster.new(monster_params)
@@ -49,7 +49,7 @@ class MonstersController < ApplicationController
   # PATCH/PUT /monsters/1
   # PATCH/PUT /monsters/1.json
   def update
-    if current_summoner.id != 1
+    if current_summoner.email != 'bruno.melo@example.com'
       format.html { redirect_to welcome_index_path, notice: 'Somente usuários autorizados' }
     else
       respond_to do |format|
@@ -67,7 +67,7 @@ class MonstersController < ApplicationController
   # DELETE /monsters/1
   # DELETE /monsters/1.json
   def destroy
-    if current_summoner.id != 1
+    if current_summoner.email != 'bruno.melo@example.com'
       format.html { redirect_to welcome_index_path, notice: 'Somente usuários autorizados' }
     else
       @monster.destroy

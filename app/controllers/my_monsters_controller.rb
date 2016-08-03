@@ -1,5 +1,6 @@
 class MyMonstersController < ApplicationController
   before_action :set_my_monster, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_summoner!, except: [:index, :show]
 
   # GET /my_monsters
   # GET /my_monsters.json
@@ -43,13 +44,15 @@ class MyMonstersController < ApplicationController
   # PATCH/PUT /my_monsters/1
   # PATCH/PUT /my_monsters/1.json
   def update
-    respond_to do |format|
-      if @my_monster.update(my_monster_params)
-        format.html { redirect_to @my_monster, notice: 'My monster was successfully updated.' }
-        format.json { render :show, status: :ok, location: @my_monster }
-      else
-        format.html { render :edit }
-        format.json { render json: @my_monster.errors, status: :unprocessable_entity }
+    if @my_monster.summoner_id == current_summoner.id
+      respond_to do |format|
+        if @my_monster.update(my_monster_params)
+          format.html { redirect_to @my_monster, notice: 'My monster was successfully updated.' }
+          format.json { render :show, status: :ok, location: @my_monster }
+        else
+          format.html { render :edit }
+          format.json { render json: @my_monster.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -57,10 +60,12 @@ class MyMonstersController < ApplicationController
   # DELETE /my_monsters/1
   # DELETE /my_monsters/1.json
   def destroy
-    @my_monster.destroy
-    respond_to do |format|
-      format.html { redirect_to my_monsters_url, notice: 'My monster was successfully destroyed.' }
-      format.json { head :no_content }
+    if @my_monster.summoner_id == current_summoner.id
+      @my_monster.destroy
+      respond_to do |format|
+        format.html { redirect_to my_monsters_url, notice: 'My monster was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

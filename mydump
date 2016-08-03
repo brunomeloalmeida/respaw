@@ -1,0 +1,535 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.5.3
+-- Dumped by pg_dump version 9.5.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: monsters; Type: TABLE; Schema: public; Owner: bruno
+--
+
+CREATE TABLE monsters (
+    id integer NOT NULL,
+    name character varying,
+    element character varying,
+    star integer,
+    hp_base integer,
+    atk_base integer,
+    def_base integer,
+    vel_base integer,
+    hp_awake integer,
+    atk_awake integer,
+    def_awake integer,
+    vel_awake integer,
+    high_essence_elemental integer,
+    mid_essence_elemental integer,
+    low_essence_elemental integer,
+    high_essence_magic integer,
+    mid_essence_magic integer,
+    low_essence_magic integer,
+    runes character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    avatar_file_name character varying,
+    avatar_content_type character varying,
+    avatar_file_size integer,
+    avatar_updated_at timestamp without time zone,
+    cr character varying,
+    cd character varying,
+    res character varying,
+    acc character varying,
+    cr_awake character varying,
+    cd_awake character varying,
+    res_awake character varying,
+    acc_awake character varying
+);
+
+
+ALTER TABLE monsters OWNER TO bruno;
+
+--
+-- Name: monsters_id_seq; Type: SEQUENCE; Schema: public; Owner: bruno
+--
+
+CREATE SEQUENCE monsters_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE monsters_id_seq OWNER TO bruno;
+
+--
+-- Name: monsters_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bruno
+--
+
+ALTER SEQUENCE monsters_id_seq OWNED BY monsters.id;
+
+
+--
+-- Name: my_monsters; Type: TABLE; Schema: public; Owner: bruno
+--
+
+CREATE TABLE my_monsters (
+    id integer NOT NULL,
+    monster_id integer,
+    summoner_id integer,
+    level integer,
+    hp_base integer,
+    hp_rune integer,
+    atk_base integer,
+    atk_rune integer,
+    def_base integer,
+    def_rune integer,
+    vel_base integer,
+    vel_rune integer,
+    cr character varying,
+    cd character varying,
+    res character varying,
+    acc character varying,
+    runes character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE my_monsters OWNER TO bruno;
+
+--
+-- Name: my_monsters_id_seq; Type: SEQUENCE; Schema: public; Owner: bruno
+--
+
+CREATE SEQUENCE my_monsters_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE my_monsters_id_seq OWNER TO bruno;
+
+--
+-- Name: my_monsters_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bruno
+--
+
+ALTER SEQUENCE my_monsters_id_seq OWNED BY my_monsters.id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: bruno
+--
+
+CREATE TABLE schema_migrations (
+    version character varying NOT NULL
+);
+
+
+ALTER TABLE schema_migrations OWNER TO bruno;
+
+--
+-- Name: summoners; Type: TABLE; Schema: public; Owner: bruno
+--
+
+CREATE TABLE summoners (
+    id integer NOT NULL,
+    email character varying DEFAULT ''::character varying NOT NULL,
+    encrypted_password character varying DEFAULT ''::character varying NOT NULL,
+    reset_password_token character varying,
+    reset_password_sent_at timestamp without time zone,
+    remember_created_at timestamp without time zone,
+    sign_in_count integer DEFAULT 0 NOT NULL,
+    current_sign_in_at timestamp without time zone,
+    last_sign_in_at timestamp without time zone,
+    current_sign_in_ip inet,
+    last_sign_in_ip inet,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE summoners OWNER TO bruno;
+
+--
+-- Name: summoners_id_seq; Type: SEQUENCE; Schema: public; Owner: bruno
+--
+
+CREATE SEQUENCE summoners_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE summoners_id_seq OWNER TO bruno;
+
+--
+-- Name: summoners_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bruno
+--
+
+ALTER SEQUENCE summoners_id_seq OWNED BY summoners.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: bruno
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    name character varying,
+    user_name character varying,
+    email character varying,
+    level integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE users OWNER TO bruno;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: bruno
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE users_id_seq OWNER TO bruno;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bruno
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: welcomes; Type: TABLE; Schema: public; Owner: bruno
+--
+
+CREATE TABLE welcomes (
+    id integer NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE welcomes OWNER TO bruno;
+
+--
+-- Name: welcomes_id_seq; Type: SEQUENCE; Schema: public; Owner: bruno
+--
+
+CREATE SEQUENCE welcomes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE welcomes_id_seq OWNER TO bruno;
+
+--
+-- Name: welcomes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bruno
+--
+
+ALTER SEQUENCE welcomes_id_seq OWNED BY welcomes.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: bruno
+--
+
+ALTER TABLE ONLY monsters ALTER COLUMN id SET DEFAULT nextval('monsters_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: bruno
+--
+
+ALTER TABLE ONLY my_monsters ALTER COLUMN id SET DEFAULT nextval('my_monsters_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: bruno
+--
+
+ALTER TABLE ONLY summoners ALTER COLUMN id SET DEFAULT nextval('summoners_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: bruno
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: bruno
+--
+
+ALTER TABLE ONLY welcomes ALTER COLUMN id SET DEFAULT nextval('welcomes_id_seq'::regclass);
+
+
+--
+-- Data for Name: monsters; Type: TABLE DATA; Schema: public; Owner: bruno
+--
+
+COPY monsters (id, name, element, star, hp_base, atk_base, def_base, vel_base, hp_awake, atk_awake, def_awake, vel_awake, high_essence_elemental, mid_essence_elemental, low_essence_elemental, high_essence_magic, mid_essence_magic, low_essence_magic, runes, created_at, updated_at, avatar_file_name, avatar_content_type, avatar_file_size, avatar_updated_at, cr, cd, res, acc, cr_awake, cd_awake, res_awake, acc_awake) FROM stdin;
+4	Epikion Priest - Rashid	Dark	3	3075	231	218	95	5880	291	297	96	0	20	5	0	15	5	Energy (Hp% / Hp% Hp%)	2016-07-19 17:10:26.485499	2016-07-19 17:10:26.485499	Epikion_Priest_Dark_Icon.png	image/png	47345	2016-07-19 17:10:25.918894	\N	\N	\N	\N	\N	\N	\N	\N
+5	Epikion Priest - Iona	Light	4	5790	297	297	95	9330	379	452	111	10	20	0	5	15	0	Energy (Hp% / Hp% Hp%)	2016-07-19 17:12:18.538427	2016-07-19 17:12:18.538427	Epikion_Priest_Light_Icon.png	image/png	47073	2016-07-19 17:12:18.410446	\N	\N	\N	\N	\N	\N	\N	\N
+1	Epikion Priest - Chloe	Fire	4	5430	273	345	95	8595	404	476	111	0	20	5	0	15	5	Swift / Energy (Spd / Hp% / Hp%)	2016-07-19 14:39:27.038901	2016-07-19 19:33:25.090735	Epikion_Priest_Fire_Icon.png	image/png	47015	2016-07-19 14:39:25.603194	\N	\N	\N	\N	\N	\N	\N	\N
+2	Epikion Priest - Rina	Water	3	3540	183	236	95	5790	238	359	96	0	20	5	0	15	5	Energy (Hp% / Hp% / Hp%)	2016-07-19 17:03:27.04009	2016-07-19 19:33:39.488685	Epikion_Priest_Water_Icon.png	image/png	48308	2016-07-19 17:03:25.909907	\N	\N	\N	\N	\N	\N	\N	\N
+3	Epikion Priest - Michelle	Wind	3	3795	209	192	95	6060	297	279	96	0	20	5	0	15	5	Energy (Hp% / Hp% / Hp%) - Energy / Endure (HP% / HP% / HP%)	2016-07-19 17:07:51.194791	2016-07-19 19:33:57.957853	Epikion_Priest_Wind_Icon.png	image/png	48472	2016-07-19 17:07:50.948379	\N	\N	\N	\N	\N	\N	\N	\N
+6	Inugami - Raoq	Fire	3	3345	244	188	107	4905	368	285	108	0	15	10	0	10	5	Fatal / Blade (Atk% / Atk% / Atk%) - Violent / Blade (Atk% / CD / Atk%) 	2016-07-21 13:36:12.620166	2016-07-21 13:36:12.620166	Inugami_Fire_Icon.png	image/png	41951	2016-07-21 13:36:10.964744	\N	\N	\N	\N	\N	\N	\N	\N
+7	Inugami - Kro	Dark	3	3270	231	205	107	4905	339	315	108	0	15	10	0	10	5	Fatal / Blade (Atk% / CD / Atk%)	2016-07-21 13:42:11.667572	2016-07-21 13:42:11.667572	dark-inugami.png	image/png	41728	2016-07-21 13:42:10.356381	\N	\N	\N	\N	\N	\N	\N	\N
+8	Inugami - Bella	Light	3	3600	175	240	107	5340	255	368	108	0	15	10	0	10	5	Violent / Revenge (SPD / HP% / HP%)	2016-07-21 17:03:39.359439	2016-07-21 17:03:39.359439	Inugami_Light_Icon.png	image/png	38112	2016-07-21 17:03:37.898135	\N	\N	\N	\N	\N	\N	\N	\N
+9	Inugami - Icaru	Water	3	3795	196	205	107	5175	267	279	108	0	15	10	0	10	5	Fatal / Blade (SPD / CR / ATK%)	2016-07-21 19:10:53.995453	2016-07-21 19:10:53.995453	Water_Inugami.png	image/png	41431	2016-07-21 19:10:52.010192	\N	\N	\N	\N	\N	\N	\N	\N
+10	Inugami - Ramahan	Wind	3	3270	183	253	107	5175	255	380	108	0	15	10	0	10	5	Swift / Focus (SPD / ATK% / ACC)	2016-07-21 23:10:16.786154	2016-07-21 23:10:16.786154	Inugami_Wind_Icon.png	image/png	42182	2016-07-21 23:10:15.885878	\N	\N	\N	\N	\N	\N	\N	\N
+\.
+
+
+--
+-- Name: monsters_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bruno
+--
+
+SELECT pg_catalog.setval('monsters_id_seq', 11, true);
+
+
+--
+-- Data for Name: my_monsters; Type: TABLE DATA; Schema: public; Owner: bruno
+--
+
+COPY my_monsters (id, monster_id, summoner_id, level, hp_base, hp_rune, atk_base, atk_rune, def_base, def_rune, vel_base, vel_rune, cr, cd, res, acc, runes, created_at, updated_at) FROM stdin;
+10	8	1	40	9885	9736	472	151	681	322	108	40	25	55	55	19	Violent / Revenge (SPD / HP% / HP%)	2016-08-02 13:58:55.861384	2016-08-02 13:58:55.861384
+\.
+
+
+--
+-- Name: my_monsters_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bruno
+--
+
+SELECT pg_catalog.setval('my_monsters_id_seq', 10, true);
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: bruno
+--
+
+COPY schema_migrations (version) FROM stdin;
+20160719120637
+20160719122047
+20160719122507
+20160719161911
+20160719162119
+20160719162314
+20160719162318
+20160719162354
+20160719162403
+20160719162410
+20160719162419
+20160719194920
+20160721112349
+20160725171446
+20160727163235
+20160727165046
+20160801133736
+20160801141201
+20160802141835
+20160802142025
+\.
+
+
+--
+-- Data for Name: summoners; Type: TABLE DATA; Schema: public; Owner: bruno
+--
+
+COPY summoners (id, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at) FROM stdin;
+3	bruno.melo@embras.net	$2a$11$iFVikLejxjb1Z2NeFWIq0eM0T8ivfnsNSME5zAUGKLvadyww/6XrO	e6551da5ef979347f882e2e3e4778cd2b4b1c17bf9a34af3032b6a9c37612abc	2016-07-26 13:18:25.482529	\N	1	2016-07-26 12:56:48.796006	2016-07-26 12:56:48.796006	127.0.0.1	127.0.0.1	2016-07-26 12:56:48.729012	2016-07-26 13:18:25.487979
+2	tegeo@example.com	$2a$11$a5jwd0hi0JSElPe35STpTumYkEW33nD9Qn3.Hrfip2xOnhF9bS5NC	\N	\N	\N	8	2016-08-01 17:12:36.292197	2016-07-27 19:00:19.423101	127.0.0.1	127.0.0.1	2016-07-25 18:47:13.342994	2016-08-01 17:12:36.293571
+1	bruno.melo@example.com	$2a$11$4qNty1AOg8o8HmwhfnEQUOIaaZq1NIXDPoUT1LkIyOCCD0UOsqVeW	\N	\N	\N	26	2016-08-02 16:58:42.21028	2016-08-02 13:45:34.466727	127.0.0.1	127.0.0.1	2016-07-25 17:31:51.194256	2016-08-02 16:58:42.217118
+\.
+
+
+--
+-- Name: summoners_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bruno
+--
+
+SELECT pg_catalog.setval('summoners_id_seq', 3, true);
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: bruno
+--
+
+COPY users (id, name, user_name, email, level, created_at, updated_at) FROM stdin;
+1	Bruno Melo Almeida	brualmeida	bruno_melo_almeida@hotmail.com	40	2016-07-19 18:45:37.973395	2016-07-19 18:45:37.973395
+2	Thiago Mattos	tegeo	tgo@hotmail.fi	40	2016-07-21 23:04:41.314819	2016-07-21 23:04:41.314819
+\.
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bruno
+--
+
+SELECT pg_catalog.setval('users_id_seq', 3, true);
+
+
+--
+-- Data for Name: welcomes; Type: TABLE DATA; Schema: public; Owner: bruno
+--
+
+COPY welcomes (id, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: welcomes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bruno
+--
+
+SELECT pg_catalog.setval('welcomes_id_seq', 1, false);
+
+
+--
+-- Name: monsters_pkey; Type: CONSTRAINT; Schema: public; Owner: bruno
+--
+
+ALTER TABLE ONLY monsters
+    ADD CONSTRAINT monsters_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: my_monsters_pkey; Type: CONSTRAINT; Schema: public; Owner: bruno
+--
+
+ALTER TABLE ONLY my_monsters
+    ADD CONSTRAINT my_monsters_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: summoners_pkey; Type: CONSTRAINT; Schema: public; Owner: bruno
+--
+
+ALTER TABLE ONLY summoners
+    ADD CONSTRAINT summoners_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: bruno
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: welcomes_pkey; Type: CONSTRAINT; Schema: public; Owner: bruno
+--
+
+ALTER TABLE ONLY welcomes
+    ADD CONSTRAINT welcomes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_my_monsters_on_monster_id; Type: INDEX; Schema: public; Owner: bruno
+--
+
+CREATE INDEX index_my_monsters_on_monster_id ON my_monsters USING btree (monster_id);
+
+
+--
+-- Name: index_my_monsters_on_summoner_id; Type: INDEX; Schema: public; Owner: bruno
+--
+
+CREATE INDEX index_my_monsters_on_summoner_id ON my_monsters USING btree (summoner_id);
+
+
+--
+-- Name: index_summoners_on_email; Type: INDEX; Schema: public; Owner: bruno
+--
+
+CREATE UNIQUE INDEX index_summoners_on_email ON summoners USING btree (email);
+
+
+--
+-- Name: index_summoners_on_reset_password_token; Type: INDEX; Schema: public; Owner: bruno
+--
+
+CREATE UNIQUE INDEX index_summoners_on_reset_password_token ON summoners USING btree (reset_password_token);
+
+
+--
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: bruno
+--
+
+CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: fk_rails_1639ee935c; Type: FK CONSTRAINT; Schema: public; Owner: bruno
+--
+
+ALTER TABLE ONLY my_monsters
+    ADD CONSTRAINT fk_rails_1639ee935c FOREIGN KEY (monster_id) REFERENCES monsters(id);
+
+
+--
+-- Name: fk_rails_6fafaac782; Type: FK CONSTRAINT; Schema: public; Owner: bruno
+--
+
+ALTER TABLE ONLY my_monsters
+    ADD CONSTRAINT fk_rails_6fafaac782 FOREIGN KEY (summoner_id) REFERENCES summoners(id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

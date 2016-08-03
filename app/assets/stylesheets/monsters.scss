@@ -20,6 +20,7 @@ ul#monster_grid li {
 
 ul#monster_grid li:hover {
 	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
 }
 
 .button_add {
@@ -33,8 +34,8 @@ ul#monster_grid li p {
 
 #element_icon {
 	padding-top: 30px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: auto;
+	padding-top: 10px;
 }
 
 h1.links_home { 
@@ -48,4 +49,9 @@ h1.links_home {
 
 #informations {
 	text-align: center;
+}
+
+.image_mob {
+	text-align: center;
+	margin: auto;
 }
