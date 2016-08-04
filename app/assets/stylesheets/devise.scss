@@ -42,3 +42,23 @@ h2 {
 #links_session {
 	text-align: center;
 }
+
+div.container-login {
+	background: url("Login_new.png");
+}
+
+div.text-login {
+	margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+    color: black;
+    border-radius: 5px;
+}
+
+a.links_decoration:hover {
+  clear: both;
+  text-decoration: none;
+  background-color: transparent;
+}
