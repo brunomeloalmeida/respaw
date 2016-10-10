@@ -20,12 +20,15 @@
     <%= f.text_field :user_name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.label :summoner_id %><br>
+    <%= f.collection_select(:summoner_id, @summoners, :id, :email, { prompt: true }, {class: "form-control"}) %>
   </div>
+
+
+
   <div class="field">
     <%= f.label :level %><br>
-    <%= f.select( "level", options_for_select((1..40), @user.level), {include_blank: "Selecione"}) %>
+    <%= f.select( "level", options_for_select((1..50).to_a.reverse, @user.level), {include_blank: false}, {class: "form-control"}) %>
   </div>
   <div class="field">
     <button type="f.submit" class="btn btn-primary"><%= 'Create' %></button>

@@ -2,6 +2,7 @@
 <div class="row">
   <div class="col-xs-6 col-sm-4 image_mob">
     <%= image_tag @monster.avatar.url(:thumb) %>
+    <%= image_tag @monster.avatar_awake.url(:thumb) %>
   </div>
 
   <div class="col-xs-6 col-sm-4">
@@ -198,9 +199,9 @@
     </p>
 
   <br>
-
+  <hr>
   <% if current_summoner %>
-    <%  if current_summoner.email == 'bruno.melo@example.com' %>
+    <%  if current_summoner.email == 'bruno_melo_almeida@hotmail.com' %>
       <div class="action"> 
         <%= link_to edit_monster_path(@monster), class: 'decoration_button' do %>
           <button type="button" class="btn btn-primary"><%= 'Editar' %></button>

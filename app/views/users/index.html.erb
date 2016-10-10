@@ -2,12 +2,11 @@
 
 <h1>Listing Users</h1>
 
-<table class="table table-striped">
+<table class="table table-striped pretty" >
   <thead>
     <tr>
-      <th>Name</th>
-      <th>User name</th>
-      <th>Email</th>
+      <th><%= sortable "name" %></th>
+      <th>User Name</th>
       <th>Level</th>
       <th colspan="3"></th>
     </tr>
@@ -18,30 +17,25 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.user_name %></td>
-        <td><%= user.email %></td>
         <td><%= user.level %></td>
-        <td><%= link_to user, class: 'decoration_button' do %>
+        <td><%= link_to user do %>
           <span class="glyphicon glyphicon-eye-open"></span><% end %> 
         </td>
-        <% if current_summoner %>
-          <% if current_summoner.email == 'bruno.melo@example.com' %>
-            <td><%= link_to edit_user_path(user), class: 'decoration_button' do %>
-              <span class="glyphicon glyphicon-pencil"></span><% end %>
-            </td>
-            <td><%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'decoration_button' do %>
-              <span class="glyphicon glyphicon-remove"></span><% end %>
-            </td>
-          <% end %>
-        <% end %>
+        <td><%= link_to edit_user_path(user) do %>
+          <span class="glyphicon glyphicon-pencil"></span><% end %>
+        </td>
+        <td><%= link_to user, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="glyphicon glyphicon-remove"></span><% end %>
+        </td>
       </tr>
-    <% end %>
+    <% end %> 
   </tbody>
 </table>
 
 <br>
 
 <% if current_summoner %>
-  <%  if current_summoner.email == 'bruno.melo@example.com' %>
+  <%  if current_summoner.email == 'bruno_melo_almeida@hotmail.com' %>
     <%= button_to new_user_path, :class => "btn btn-default", :method => :get do %>
         <span class="glyphicon glyphicon-plus"></span> <% end %>
   <% end %>

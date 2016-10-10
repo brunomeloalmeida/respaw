@@ -6,13 +6,8 @@
 </p>
 
 <p>
-  <strong>User name:</strong>
+  <strong>Username:</strong>
   <%= @user.user_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
 </p>
 
 <p>
@@ -20,8 +15,9 @@
   <%= @user.level %>
 </p>
 
+<hr>
 <div class="action"> 
-  <% if current_summoner.email == 'bruno.melo@example.com' %>
+  <% if current_summoner.email == 'bruno_melo_almeida@hotmail.com' %>
     <%= link_to edit_user_path(@user), class: 'decoration_button' do %>
         <button type="button" class="btn btn-primary"><%= 'Editar' %></button>
     <% end %>

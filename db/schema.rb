@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802142025) do
+ActiveRecord::Schema.define(version: 20161007141616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20160802142025) do
     t.integer  "mid_essence_magic"
     t.integer  "low_essence_magic"
     t.string   "runes"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -49,6 +49,10 @@ ActiveRecord::Schema.define(version: 20160802142025) do
     t.string   "cd_awake"
     t.string   "res_awake"
     t.string   "acc_awake"
+    t.string   "avatar_awake_file_name"
+    t.string   "avatar_awake_content_type"
+    t.integer  "avatar_awake_file_size"
+    t.datetime "avatar_awake_updated_at"
   end
 
   create_table "my_monsters", force: :cascade do |t|
@@ -96,11 +100,13 @@ ActiveRecord::Schema.define(version: 20160802142025) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "user_name"
-    t.string   "email"
     t.integer  "level"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "summoner_id"
   end
+
+  add_index "users", ["summoner_id"], name: "index_users_on_summoner_id", using: :btree
 
   create_table "welcomes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -109,4 +115,5 @@ ActiveRecord::Schema.define(version: 20160802142025) do
 
   add_foreign_key "my_monsters", "monsters"
   add_foreign_key "my_monsters", "summoners"
+  add_foreign_key "users", "summoners"
 end

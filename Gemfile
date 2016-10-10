@@ -53,3 +53,9 @@ group :development do
   gem 'spring'
 end
 
+
+# Gems criadas para tentar o dataTables
+	gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+	gem 'jquery-ui-rails', '~> 4.2.1'
+
+gem 'will_paginate'

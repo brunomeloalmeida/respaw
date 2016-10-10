@@ -17,11 +17,12 @@ class MyMonstersController < ApplicationController
   def new
     @my_monster = MyMonster.new
     @monsters = Monster.all
+    #@monsters = Monster.where("name LIKE ?", "%Inugami%")
   end
 
   # GET /my_monsters/1/edit
   def edit
-    @monsters = Monster.all
+    @monsters = Monster.all.order(:name)
   end
 
   # POST /my_monsters

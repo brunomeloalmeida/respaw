@@ -11,18 +11,19 @@ ul#monster_grid li {
 	width: 110px;
 	float: left;
 	margin: 10px;
-	margin-bottom: 50px;
+	margin-bottom: 70px;
     border: 2px solid #ffffff;
-    background-color: #ffffff;
     box-shadow: 1px 1px 3px rgba(0,0,0,.4);
     text-align: center;
 }
 
 ul#monster_grid li:hover {
-	-webkit-transform: scale(1.1);
-    -webkit-transition: all .2s ease-in;
-    -moz-transform: scale(1.1);
-    -moz-transition: all .2s ease-in;
+	-webkit-transform: scale(1.3);
+    -webkit-transition: all .1s ease-in;
+    -moz-transform: scale(1.3);
+    -moz-transition: all .1s ease-in;
+    background-color: black;
+    color: black;
 }
 
 .button_add {

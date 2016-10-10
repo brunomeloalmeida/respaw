@@ -1,3 +1,12 @@
+@mixin shadow($color, $x, $y, $radius) {
+  -moz-box-shadow: $color $x $y $radius;
+  -webkit-box-shadow: $color $x $x $radius;
+  box-shadow: $color $x $x $radius;
+}
+
+$error-text-color: #B94A48;
+$success-text-color: #468847;
+
 body {
   background-color: #fff;
   color: #333;
@@ -38,36 +47,42 @@ div {
 }
 
 #notice {
-  color: green;
+  color: $success-text-color;
+  @extend .padded_flash;
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+  display: inline;
+  label { color: $error-text-color; }
+  input[type=text], input[type=password], textarea {
+    border: 1px solid rgba(189,74,72, 0.5);
+    @include shadow(rgba(189,74,72, 0.2), 0px, 0px, 8px);
+    &:focus { border: 1px solid rgba(189,74,72, 0.6); }
+  }
+}
+
+.padded_flash {
+  padding: 10px;
+  margin: 10px 0;
+  font-weight: bold;
+  width: 500px;
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+  border: 1px solid $error-text-color;
+  color: $error-text-color;
+  background-color: #F2DEDE;
+  @extend .padded_flash;
+}
 
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
+.error_message {
+  margin-left: 5px;
+  display: inline;
+  color: $error-text-color;
+}
 
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
+#alert {
+  color: $error-text-color;
+  border: 1px solid $error-text-color;
+  @extend .padded_flash;
 }

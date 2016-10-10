@@ -1,2 +1,2 @@
-module MonstersHelper
+module MonstersHelper	
 end

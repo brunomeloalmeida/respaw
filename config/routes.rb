@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :galeries
   resources :my_monsters
   resources :my_monsters
   resources :my_monsters
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   resources :monsters
   resources :users
   resources :welcome
+  resources :galery
 
   # get 'show_monster' => 'my_monsters#show_monster'
   # The priority is based upon order of creation: first created -> highest priority.
