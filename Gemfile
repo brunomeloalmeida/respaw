@@ -33,6 +33,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 gem 'bootstrap-sass', '~>3.2.0'
 gem 'devise'
+gem 'chosen-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -52,10 +53,5 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
-
-# Gems criadas para tentar o dataTables
-	gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
-	gem 'jquery-ui-rails', '~> 4.2.1'
 
 gem 'will_paginate'

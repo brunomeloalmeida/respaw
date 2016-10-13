@@ -1,5 +1,13 @@
+<div id="button_search">
+  <%= form_tag monsters_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <button type="submit" value="search" class="btn btn-default">
+      <span class="glyphicon glyphicon-search"></span>
+    </button>
+  <% end %>
+</div>
 
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%= notice %></p>
 <% if current_summoner %>
   <%  if current_summoner.email == 'bruno_melo_almeida@hotmail.com' %>
     <div class="button_add">
@@ -7,7 +15,7 @@
         <span class="glyphicon glyphicon-plus"></span> <% end %>
     </div>
   <% end %>
-<% end %>
+<% end %> -->
 
 <body>
   <% @monsters.each do |monster| %>

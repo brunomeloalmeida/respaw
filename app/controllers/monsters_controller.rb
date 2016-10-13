@@ -5,7 +5,7 @@ class MonstersController < ApplicationController
   # GET /monsters
   # GET /monsters.json
   def index
-    @monsters = Monster.all.order(:name)
+    @monsters = Monster.search(params[:search]).order(:name)
   end
 
   # GET /monsters/1

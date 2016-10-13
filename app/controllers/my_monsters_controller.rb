@@ -1,6 +1,7 @@
 class MyMonstersController < ApplicationController
   before_action :set_my_monster, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_summoner!, except: [:index, :show]
+  respond_to :html, :json
 
   # GET /my_monsters
   # GET /my_monsters.json
@@ -16,7 +17,8 @@ class MyMonstersController < ApplicationController
   # GET /my_monsters/new
   def new
     @my_monster = MyMonster.new
-    @monsters = Monster.all
+    @monsters = Monster.order('name asc').all
+    respond_with @monsters
     #@monsters = Monster.where("name LIKE ?", "%Inugami%")
   end
 

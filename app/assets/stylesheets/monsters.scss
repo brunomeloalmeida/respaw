@@ -4,6 +4,7 @@
 
 ul#monster_grid {
 	list-style: none;
+	margin-top: 35px;
 }									
 
 ul#monster_grid li {
@@ -58,4 +59,16 @@ h1.links_home {
 	text-align: center;
 	margin: auto;
 	transition: all .2s ease-in-out;
+}
+
+#button_search {
+	float: right;
+}
+
+.chosen_element_monster {
+	width: 80px;
+}
+
+.chosen_star_monster {
+	width: 50px;
 }

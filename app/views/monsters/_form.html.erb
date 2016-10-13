@@ -27,11 +27,11 @@
       </div>  
       <div class="field">
         <%= f.label :element %><br>
-        <%= f.select( "element", options_for_select([["Fire"], ["Water"], ["Wind"], ["Dark"], ["Light"]], @monster.element), {include_blank: "Selecione"}) %>
+        <%= f.select( "element", options_for_select([["Fire"], ["Water"], ["Wind"], ["Dark"], ["Light"]], @monster.element), {include_blank: true}, { class: 'chosen_element_monster'}) %>
       </div>
       <div class="fiel">
         <%= f.label :star %><br>
-        <%= f.select( "star", options_for_select([[1], [2], [3], [4], [5]], @monster.star), {include_blank: "Selecione"}) %>
+        <%= f.select( "star", options_for_select([[1], [2], [3], [4], [5]], @monster.star), {include_blank: true}, { class: 'chosen_star_monster'}) %>
       </div>
       <div class="field">
         <%= f.label :hp_base %><br>
