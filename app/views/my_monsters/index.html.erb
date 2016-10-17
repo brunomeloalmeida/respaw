@@ -2,7 +2,7 @@
 
 <h1>Listing My Monsters</h1>
 
-<table class="table table-striped">
+<table class="table table-striped datatable">
   <thead>
     <tr>
       <th>Monster</th>
@@ -16,7 +16,9 @@
       <th>Res</th>
       <th>Acc</th>
       <th>Runes</th>
-      <th colspan="3"></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -25,10 +27,10 @@
       <tr>
         <td><%= my_monster.monster.name %></td>
         <td><%= my_monster.level %></td>
-        <td><%= my_monster.hp_base + my_monster.status_rune_hp%></td>
-        <td><%= my_monster.atk_base + my_monster.status_rune_atk%></td>
-        <td><%= my_monster.def_base + my_monster.status_rune_def%></td>
-        <td><%= my_monster.vel_base + my_monster.status_rune_vel%></td>
+        <td><%= my_monster.hp_total(my_monster.hp_base, my_monster.status_rune_hp) %></td>
+        <td><%= my_monster.atk_total(my_monster.atk_base, my_monster.status_rune_atk) %></td>
+        <td><%= my_monster.def_total(my_monster.def_base, my_monster.status_rune_def) %></td>
+        <td><%= my_monster.vel_total(my_monster.vel_base, my_monster.status_rune_vel) %></td>
         <td><%= my_monster.cr %></td>
         <td><%= my_monster.cd %></td>
         <td><%= my_monster.res %></td>

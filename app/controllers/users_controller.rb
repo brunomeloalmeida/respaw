@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  helper_method :sort_column, :sort_direction
   # GET /users
   # GET /users.json
   def index
-      @users = User.order(sort_column + " " + sort_direction)
+      @users = User.order(:name)
   end
 
   # GET /users/1
@@ -72,13 +71,5 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :user_name, :level, :summoner_id)
-    end
-
-    def sort_column
-      User.column_names.include?(params[:sort]) ? params[:sort] : "name"
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 end

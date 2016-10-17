@@ -34,4 +34,20 @@ class MyMonster < ActiveRecord::Base
 	end
   end
 
+  def hp_total(hp_b, hp_r)
+  	hp_b + hp_r
+  end
+
+  def atk_total(atk_b, atk_r)
+  	atk_b + atk_r
+  end
+
+  def def_total(def_b, def_r)
+  	def_b + def_r
+  end
+
+  def vel_total(vel_b, vel_r)
+  	vel_b + vel_r
+  end
+
 end

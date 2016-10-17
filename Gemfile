@@ -34,6 +34,8 @@ gem "twitter-bootstrap-rails"
 gem 'bootstrap-sass', '~>3.2.0'
 gem 'devise'
 gem 'chosen-rails'
+gem 'jquery-turbolinks'
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
