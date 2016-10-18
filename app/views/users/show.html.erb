@@ -17,9 +17,11 @@
 
 <hr>
 <div class="action"> 
-  <% if current_summoner.email == 'bruno_melo_almeida@hotmail.com' %>
-    <%= link_to edit_user_path(@user), class: 'decoration_button' do %>
-        <button type="button" class="btn btn-primary"><%= 'Editar' %></button>
+  <% if current_summoner %>
+    <% if current_summoner.email == 'bruno_melo_almeida@hotmail.com' %>
+      <%= link_to edit_user_path(@user), class: 'decoration_button' do %>
+          <button type="button" class="btn btn-primary"><%= 'Editar' %></button>
+      <% end %>
     <% end %>
   <% end %>
 	<%= link_to users_path, class: 'decoration_button'  do %>
