@@ -1,29 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<h1 id="show_nickname"><strong><%= @user.user_name %></strong></h1>  
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.user_name %>
-</p>
+<br><br>
+<table class="table table-striped datatable">
+  <thead>
+    <tr>
+      <th>Monster</th>
+      <th>Level</th>
+      <th>Hp</th>
+      <th>Atk</th>
+      <th>Def</th>
+      <th>Vel</th>
+      <th>Cr</th>
+      <th>Cd</th>
+      <th>Res</th>
+      <th>Acc</th>
+      <th>Runes</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Level:</strong>
-  <%= @user.level %>
-</p>
+  <tbody>
+    <% @user_monsters.each do |my_monster| %>
+      <tr>
+        <td><%= my_monster.monster.name %></td>
+        <td><%= my_monster.level %></td>
+        <td><%= my_monster.hp_total(my_monster.hp_base, my_monster.status_rune_hp) %></td>
+        <td><%= my_monster.atk_total(my_monster.atk_base, my_monster.status_rune_atk) %></td>
+        <td><%= my_monster.def_total(my_monster.def_base, my_monster.status_rune_def) %></td>
+        <td><%= my_monster.vel_total(my_monster.vel_base, my_monster.status_rune_vel) %></td>
+        <td><%= my_monster.cr %></td>
+        <td><%= my_monster.cd %></td>
+        <td><%= my_monster.res %></td>
+        <td><%= my_monster.acc %></td>
+        <td><%= my_monster.runes %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
 
 <hr>
 <div class="action"> 
-  <% if current_summoner %>
-    <% if current_summoner.email == 'bruno_melo_almeida@hotmail.com' %>
-      <%= link_to edit_user_path(@user), class: 'decoration_button' do %>
-          <button type="button" class="btn btn-primary"><%= 'Editar' %></button>
-      <% end %>
-    <% end %>
-  <% end %>
+  
 	<%= link_to users_path, class: 'decoration_button'  do %>
         <button type="button" class="btn btn-primary"><%= 'Back' %></button>
     <% end %>

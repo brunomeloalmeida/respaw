@@ -1,5 +1,5 @@
 class MyMonstersController < ApplicationController
-  before_action :set_my_monster, only: [:show, :edit, :update, :destroy]
+  before_action :set_my_monster, only: [:edit, :update, :destroy]
   before_action :authenticate_summoner!, except: [:index, :show]
 
   # GET /my_monsters
@@ -11,6 +11,7 @@ class MyMonstersController < ApplicationController
   # GET /my_monsters/1
   # GET /my_monsters/1.json
   def show
+
   end
 
   # GET /my_monsters/new
