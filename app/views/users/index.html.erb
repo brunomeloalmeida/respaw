@@ -25,7 +25,7 @@
         </td>
         <% if current_summoner %>
           <%  if current_summoner.email == 'bruno_melo_almeida@hotmail.com' %>
-            <td><%= link_to edit_user_path(user), class: 'decoration_button' do %>
+            <td colspan="1"><%= link_to edit_user_path(user), class: 'decoration_button' do %>
               <span class="glyphicon glyphicon-pencil"></span><% end %>
             </td>
             <td><%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'decoration_button' do %>
