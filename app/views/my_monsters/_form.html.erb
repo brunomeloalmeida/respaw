@@ -23,6 +23,11 @@
         <%= f.select( "level", options_for_select((1..40).to_a.reverse, @my_monster.level), {include_blank: "Selecione"}) %>
       </div>
       <div class="field">
+        <%= f.label :star %><br>
+        <%= f.select( "star", options_for_select((1..6).to_a.reverse, @my_monster.star), {include_blank: "Selecione"}) %>
+      </div>
+
+      <div class="field">
         <%= f.label :hp_base %><br>
         <%= f.number_field :hp_base %>
       </div>
@@ -75,6 +80,10 @@
       <div class="field">
         <%= f.label :runes %><br>
         <%= f.text_field :runes %>
+      </div>
+      <div class="field">
+        <%= f.label :awake %><br>
+        <%= f.select( "awake", options_for_select((['true', 'false']), @my_monster.awake), {include_blank: "Selecione"}) %>
       </div>
     </div>
   </div>

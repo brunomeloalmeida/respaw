@@ -78,6 +78,8 @@ class MyMonstersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def my_monster_params
-      params.require(:my_monster).permit(:monster_id, :level, :hp_base, :hp_rune, :atk_base, :atk_rune, :def_base, :def_rune, :vel_base, :vel_rune, :cr, :cd, :res, :acc, :runes)
+      params.require(:my_monster).permit(:monster_id, :level, :hp_base, :hp_rune, :atk_base, 
+        :atk_rune, :def_base, :def_rune, :vel_base, :vel_rune, :cr, :cd, :res, 
+        :acc, :runes, :awake, :star)
     end
 end

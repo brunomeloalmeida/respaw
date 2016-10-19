@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007141616) do
+ActiveRecord::Schema.define(version: 20161019174425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 20161007141616) do
     t.string   "runes"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.boolean  "awake"
+    t.integer  "star"
   end
 
   add_index "my_monsters", ["monster_id"], name: "index_my_monsters_on_monster_id", using: :btree
