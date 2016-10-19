@@ -9,8 +9,12 @@
       <th>User Name</th>
       <th>Level</th>
       <th></th>
-      <th></th>
-      <th></th>
+      <% if current_summoner %>
+        <%  if current_summoner.email == 'bruno_melo_almeida@hotmail.com' %> 
+          <th></th>
+          <th></th>
+        <% end %>
+      <% end %>    
     </tr>
   </thead>
 
@@ -32,9 +36,6 @@
               <span class="glyphicon glyphicon-remove"></span><% end %>
             </td>
           <% end %>
-        <% else %>
-          <td></td>
-          <td></td>
         <% end %>
       </tr>
     <% end %> 
