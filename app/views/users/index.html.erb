@@ -24,15 +24,15 @@
         <td><%= user.name %></td>
         <td><%= user.user_name %></td>
         <td><%= user.level %></td>
-        <td><%= link_to user, class: 'decoration_button' do %>
+        <td class="icons_index"><%= link_to user, class: 'decoration_button' do %>
           <%= image_tag('new_icon_monster.png') %><% end %> 
         </td>
         <% if current_summoner %>
           <%  if current_summoner.email == 'bruno_melo_almeida@hotmail.com' %>
-            <td colspan="1"><%= link_to edit_user_path(user), class: 'decoration_button' do %>
+            <td class="icons_index"><%= link_to edit_user_path(user), class: 'decoration_button' do %>
               <span class="glyphicon glyphicon-pencil"></span><% end %>
             </td>
-            <td><%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'decoration_button' do %>
+            <td class="icons_index"><%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'decoration_button' do %>
               <span class="glyphicon glyphicon-remove"></span><% end %>
             </td>
           <% end %>

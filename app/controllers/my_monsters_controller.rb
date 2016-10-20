@@ -30,15 +30,20 @@ class MyMonstersController < ApplicationController
   def create
     @my_monster = MyMonster.new(my_monster_params)
     @my_monster.summoner_id = current_summoner.id
+    @monsters = Monster.order('name asc').all
 
-    respond_to do |format|
-      if @my_monster.save
-        format.html { redirect_to @my_monster, notice: 'My monster was successfully created.' }
-        format.json { render :show, status: :created, location: @my_monster }
-      else
-        format.html { render :new }
-        format.json { render json: @my_monster.errors, status: :unprocessable_entity }
+    if @my_monster.valid?
+      respond_to do |format|
+        if @my_monster.save
+          format.html { redirect_to @my_monster, notice: 'My monster was successfully created.' }
+          format.json { render :show, status: :created, location: @my_monster }
+        else
+          format.html { render :new }
+          format.json { render json: @my_monster.errors, status: :unprocessable_entity }
+        end
       end
+    else 
+      render 'new'
     end
   end
 

@@ -15,7 +15,7 @@
     <div class="col-md-6">
       <div class="field">
           <%= f.label :monster_id %><br>
-          <%= f.collection_select :monster_id, @monsters.order(:name), :id, :name, { include_blank: true}, { class: 'chosen_my_monster'} %>
+          <%= f.collection_select :monster_id, @monsters, :id, :name, { include_blank: true}, { class: 'chosen_my_monster'} %>
       </div> 
 
       <div class="field">

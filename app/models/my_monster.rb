@@ -2,6 +2,9 @@ class MyMonster < ActiveRecord::Base
   belongs_to :monster
   belongs_to :summoner
 
+  validates :monster_id, :level, :hp_base, :atk_base, :def_base, :vel_base, :cr, :cd, :res, 
+        :acc, :awake, :star, presence: true
+
   def status_rune_hp
 	if self.hp_rune.blank? 
 			0
