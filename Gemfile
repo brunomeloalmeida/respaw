@@ -36,6 +36,8 @@ gem 'devise'
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
 gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
+# Gem para gallery
+gem 'blueimp-gallery'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

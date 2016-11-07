@@ -50,6 +50,8 @@ GEM
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    blueimp-gallery (2.11.0.1)
+      railties (>= 3.1.0)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.2)
@@ -207,6 +209,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  blueimp-gallery
   bootstrap-sass (~> 3.2.0)
   byebug
   chosen-rails
@@ -231,4 +234,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.12.5
+   1.13.6
