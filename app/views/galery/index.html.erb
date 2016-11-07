@@ -8,7 +8,7 @@
   <ol class="indicator"></ol>
 </div>
 
-<div id="links">
+<div id="links_gallery">
   <%= link_to( image_tag("1_small.jpg"), image_path( "1-big.jpg") ) %>
   <%= link_to( image_tag("2_small.jpg"), image_path( "2-big.jpg") ) %>
   <%= link_to( image_tag("3_small.jpg"), image_path( "3-big.jpg") ) %>
@@ -16,6 +16,16 @@
   <%= link_to( image_tag("5_small.jpg"), image_path( "5-big.jpg") ) %>
   <%= link_to( image_tag("6_small.png"), image_path( "6-big.jpg") ) %>
   <%= link_to( image_tag("7_small.jpg"), image_path( "7-big.jpg") ) %>
-  <%= link_to( image_tag("8_small.jpg"), image_path( "8-big.jpg") ) %>
-  
+  <%= link_to( image_tag("8_small.jpg"), image_path( "8-big.jpg") ) %> 
 </div>
+
+<script>
+document.getElementById('links_gallery').onclick = function (event) {
+  event = event || window.event;
+  var target = event.target || event.srcElement,
+    link = target.src ? target.parentNode : target,
+    options = {index: link, event: event},
+    links = this.getElementsByTagName('a');
+  blueimp.Gallery(links, options);
+};
+</script>
