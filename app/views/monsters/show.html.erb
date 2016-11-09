@@ -8,29 +8,29 @@
   <div class="col-xs-6 col-sm-4">
     <h2 id="monster_name"><%= @monster.name %></h2>
     <% if @monster.star == 1 %>
-      <h2><%= image_tag('one_star.png') %></h2>
+      <h2><%= image_tag('icon_star/one_star.png') %></h2>
     <% elsif @monster.star == 2 %>
-      <h2><%= image_tag('two_star.png') %></h2>
+      <h2><%= image_tag('icon_star/two_star.png') %></h2>
     <% elsif @monster.star == 3 %>
-      <h2><%= image_tag('three_star.png') %></h2>
+      <h2><%= image_tag('icon_star/three_star.png') %></h2>
     <% elsif @monster.star == 4 %>
-      <h2><%= image_tag('four_star.png') %></h2>
+      <h2><%= image_tag('icon_star/four_star.png') %></h2>
     <% else %>
-      <h2><%= image_tag('five_star.png') %></h2>
+      <h2><%= image_tag('icon_star/five_star.png') %></h2>
     <% end %>   
   </div>
 
   <div class="col-xs-6 col-sm-4" id="element_icon">
     <% if @monster.element == 'Fire' %>
-      <h2><%= image_tag('Fire_Icon.png') %></h2>
+      <h2><%= image_tag('icon_element/Fire_Icon.png') %></h2>
     <% elsif @monster.element == 'Water' %>
-      <h2><%= image_tag('Water_Icon.png') %></h2>
+      <h2><%= image_tag('icon_element/Water_Icon.png') %></h2>
     <% elsif @monster.element == 'Wind' %>
-      <h2><%= image_tag('Wind_Icon.png') %></h2>
+      <h2><%= image_tag('icon_element/Wind_Icon.png') %></h2>
     <% elsif @monster.element == 'Dark' %>
-      <h2><%= image_tag('Dark_Icon.png') %></h2>
+      <h2><%= image_tag('icon_element/Dark_Icon.png') %></h2>
     <% else %>
-      <h2><%= image_tag('Light_Icon.png') %></h2>
+      <h2><%= image_tag('icon_element/Light_Icon.png') %></h2>
     <% end %>  
   </div>
 </div>

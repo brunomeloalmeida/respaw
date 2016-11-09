@@ -14,27 +14,27 @@ class MyMonster < ActiveRecord::Base
   end
 
   def status_rune_atk
-	if self.atk_rune.blank? 
-			0
-	else
-		self.atk_rune
+  	if self.atk_rune.blank? 
+  			0
+  	else
+  		self.atk_rune
 	end
   end
 
   def status_rune_def
-	if self.def_rune.blank? 
-			0
-	else
-		self.def_rune
-	end
+  	if self.def_rune.blank? 
+  			0
+  	else
+  		self.def_rune
+  	end
   end
 
   def status_rune_vel
-	if self.vel_rune.blank? 
-			0
-	else
-		self.vel_rune
-	end
+  	if self.vel_rune.blank? 
+  			0
+  	else
+  		self.vel_rune
+  	end
   end
 
   def hp_total(hp_b, hp_r)
