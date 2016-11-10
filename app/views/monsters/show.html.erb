@@ -209,16 +209,16 @@
         <%= link_to @monster, method: :delete, data: { confirm: 'Are you sure?' }, class: 'decoration_button'  do %>
           <button type="button" class="btn btn-primary"><%= 'Excluir' %></button>
         <% end %>
+        <div class="button_add">
+          <%= button_to new_monster_path, :class => "btn btn-default", :method => :get do %>
+            <span class="glyphicon glyphicon-plus"></span> <% end %>
+        </div>
     <% end %>
   <% end %>
         <%= link_to monsters_path, class: 'decoration_button'  do %>
           <button type="button" class="btn btn-primary"><%= 'Back' %></button>
         <% end %>
-        <br><br>
-        <div class="button_add">
-          <%= button_to new_monster_path, :class => "btn btn-default", :method => :get do %>
-            <span class="glyphicon glyphicon-plus"></span> <% end %>
-        </div>
+        <br><br>       
       </div>
   </div>
 </div>
