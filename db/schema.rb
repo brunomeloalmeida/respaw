@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019174425) do
+ActiveRecord::Schema.define(version: 20161123115431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20161019174425) do
     t.integer  "mid_essence_magic"
     t.integer  "low_essence_magic"
     t.string   "runes"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -53,6 +53,26 @@ ActiveRecord::Schema.define(version: 20161019174425) do
     t.string   "avatar_awake_content_type"
     t.integer  "avatar_awake_file_size"
     t.datetime "avatar_awake_updated_at"
+    t.text     "skill1"
+    t.text     "skill2"
+    t.text     "skill3"
+    t.text     "skill4"
+    t.string   "avatar_skill_1_file_name"
+    t.string   "avatar_skill_1_content_type"
+    t.integer  "avatar_skill_1_file_size"
+    t.datetime "avatar_skill_1_updated_at"
+    t.string   "avatar_skill_2_file_name"
+    t.string   "avatar_skill_2_content_type"
+    t.integer  "avatar_skill_2_file_size"
+    t.datetime "avatar_skill_2_updated_at"
+    t.string   "avatar_skill_3_file_name"
+    t.string   "avatar_skill_3_content_type"
+    t.integer  "avatar_skill_3_file_size"
+    t.datetime "avatar_skill_3_updated_at"
+    t.string   "avatar_skill_4_file_name"
+    t.string   "avatar_skill_4_content_type"
+    t.integer  "avatar_skill_4_file_size"
+    t.datetime "avatar_skill_4_updated_at"
   end
 
   create_table "my_monsters", force: :cascade do |t|

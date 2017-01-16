@@ -6,11 +6,11 @@ class MyMonster < ActiveRecord::Base
         :acc, :awake, :star, presence: true
 
   def status_rune_hp
-	if self.hp_rune.blank? 
-			0
-	else
-		self.hp_rune
-	end
+  	if self.hp_rune.blank? 
+  			0
+  	else
+  		self.hp_rune
+  	end
   end
 
   def status_rune_atk

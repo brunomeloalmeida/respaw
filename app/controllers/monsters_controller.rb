@@ -88,6 +88,7 @@ class MonstersController < ApplicationController
     def monster_params
       params.require(:monster).permit(:name, :element, :star, :hp_base, :atk_base, :def_base, :vel_base, :cr, 
         :cd, :res, :acc, :hp_awake, :atk_awake, :def_awake, :vel_awake, :cr_awake, :cd_awake, :res_awake, :acc_awake, 
-        :high_essence_elemental, :mid_essence_elemental, :low_essence_elemental, :high_essence_magic, :mid_essence_magic, :low_essence_magic, :runes, :avatar, :avatar_awake)
+        :high_essence_elemental, :mid_essence_elemental, :low_essence_elemental, :high_essence_magic, :mid_essence_magic, :low_essence_magic, :runes, :avatar, :avatar_awake,
+        :skill1, :skill2, :skill3, :skill4, :avatar_skill_1, :avatar_skill_2, :avatar_skill_3, :avatar_skill_4 )
     end
 end

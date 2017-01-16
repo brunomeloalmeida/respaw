@@ -15,17 +15,35 @@
     <div class="col-md-6">
       <div class="field">
           <%= f.label :monster_id %><br>
-          <%= f.collection_select :monster_id, @monsters, :id, :name, { include_blank: true}, { class: 'chosen_my_monster'} %>
+          <%= f.collection_select :monster_id, @monsters, :id, :name, { include_blank: true}, { class: 'chosen_my_monster', id: 'star_mymonster'} %>
       </div> 
 
-      <div class="field">
-        <%= f.label :level %><br>
-        <%= f.select( "level", options_for_select((1..40).to_a.reverse, @my_monster.level), {include_blank: "Selecione"}) %>
-      </div>
       <div class="field">
         <%= f.label :star %><br>
         <%= f.select( "star", options_for_select((1..6).to_a.reverse, @my_monster.star), {include_blank: "Selecione"}) %>
       </div>
+      <div class="field">
+        <%= f.label :level %><br>
+        <%= f.select( "level", options_for_select((1..40).to_a.reverse, @my_monster.level), {include_blank: "Selecione"}) %>
+        <!--
+        <script>
+          document.getElementById('star_mymonster')
+        </script>
+        <% case :star %>
+          <% when 1 %>
+            <%= f.select( "level", options_for_select((1..15).to_a.reverse, @my_monster.level), {include_blank: "Selecione"}) %>
+          <% when 2 %>
+            <%= f.select( "level", options_for_select((1..20).to_a.reverse, @my_monster.level), {include_blank: "Selecione"}) %>
+          <% when 3 %>
+            <%= f.select( "level", options_for_select((1..25).to_a.reverse, @my_monster.level), {include_blank: "Selecione"}) %>
+          <% when 4 %>
+            <%= f.select( "level", options_for_select((1..30).to_a.reverse, @my_monster.level), {include_blank: "Selecione"}) %>
+          <% when 5 %>
+            <%= f.select( "level", options_for_select((1..35).to_a.reverse, @my_monster.level), {include_blank: "Selecione"}) %>
+          <% when 6 %>
+            <%= f.select( "level", options_for_select((1..40).to_a.reverse, @my_monster.level), {include_blank: "Selecione"}) %>
+        <% end %> -->
+      </div> 
 
       <div class="field">
         <%= f.label :hp_base %><br>

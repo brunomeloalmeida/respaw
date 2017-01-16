@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+<!-- Inicio Head -->
+<!-- Icones dos Monstros -->
 <div class="row">
   <div class="col-xs-6 col-sm-4 image_mob">
     <%= image_tag @monster.avatar.url(:thumb) %>
@@ -34,9 +36,10 @@
     <% end %>  
   </div>
 </div>
+<!-- Fim Head -->
 
 <hr>
-
+<!-- Corpo --> 
 <div id="show_monster">
   <div class="row">
     <div class="col-md-6 status_align">
@@ -197,29 +200,92 @@
       <strong>Runes:</strong>
       <%= @monster.runes %>
     </p>
+  </div>
+</div>
+<!-- Fim Corpo -->
 
-  <br>
-  <hr>
-  <% if current_summoner %>
-    <%  if current_summoner.email == 'bruno_melo_almeida@hotmail.com' %>
-      <div class="action"> 
-        <%= link_to edit_monster_path(@monster), class: 'decoration_button' do %>
-          <button type="button" class="btn btn-primary"><%= 'Editar' %></button>
-        <% end %>
-        <%= link_to @monster, method: :delete, data: { confirm: 'Are you sure?' }, class: 'decoration_button'  do %>
-          <button type="button" class="btn btn-primary"><%= 'Excluir' %></button>
-        <% end %>
-        <br><br>       
-        <div class="button_add">
-          <%= button_to new_monster_path, :class => "btn btn-default", :method => :get do %>
-            <span class="glyphicon glyphicon-plus"></span> <% end %>
-        </div>
-        <br><br>
+<br>
+<hr>
+
+<!-- Skills -->
+<% if @monster.skill1.blank? == false %>
+  <div class="field skill">
+    <div class="col-md-4 avatar_skill">
+      <%= image_tag @monster.avatar_skill_1.url(:thumb) %>
+    </div>
+    <div class="col-md-8 text_skill">
+      <% tit_skill1 = @monster.skill1.split('-') %>
+      <strong><%= tit_skill1[0] %></strong>
+      <%= '-' %>
+      <%= tit_skill1[1] %>
+    </div>
+  </div>
+<% end %>
+<% if @monster.skill2.blank? == false %>
+  <div class="field skill ">
+    <div class="col-md-4 avatar_skill">
+      <%= image_tag @monster.avatar_skill_2.url(:thumb) %>
+    </div>
+    <div class="col-md-8 text_skill">
+      <% tit_skill2 = @monster.skill2.split('-') %>
+      <strong><%= tit_skill2[0] %></strong>
+      <%= '-' %>
+      <%= tit_skill2[1] %>
+    </div>
+  </div>
+<% end %>
+<% if @monster.skill3.blank? == false %>
+  <div class="field skill">
+    <div class="col-md-4 avatar_skill">
+      <%= image_tag @monster.avatar_skill_3.url(:thumb) %>
+    </div>
+    <div class="col-md-8 text_skill">
+      <% tit_skill3 = @monster.skill3.split('-') %>
+      <strong><%= tit_skill3[0] %></strong>
+      <%= '-' %>
+      <%= tit_skill3[1] %>
+    </div>
+  </div>
+<% end %>
+<% if @monster.skill4.blank? == false%>
+  <div class="field skill">
+    <div class="col-md-4 avatar_skill">
+      <%= image_tag @monster.avatar_skill_4.url(:thumb) %>
+    </div>
+    <div class="col-md-8 text_skill">
+      <% tit_skill4 = @monster.skill4.split('-') %>
+      <strong><%= tit_skill4[0] %></strong>
+      <%= '-' %>
+      <%= tit_skill4[1] %>
+    </div>
+  </div>
+<% end %>
+<!-- Fim Skills -->
+
+<br>
+<br>
+<hr>
+
+<div class="botoes">
+<% if current_summoner %>
+<%  if current_summoner.email == 'bruno_melo_almeida@hotmail.com' %>
+  <div class="action"> 
+    <%= link_to edit_monster_path(@monster), class: 'decoration_button' do %>
+      <button type="button" class="btn btn-primary"><%= 'Editar' %></button>
     <% end %>
-  <% end %>
-        <%= link_to monsters_path, class: 'decoration_button'  do %>
-          <button type="button" class="btn btn-primary"><%= 'Back' %></button>
-        <% end %>
-      </div>
+    <%= link_to @monster, method: :delete, data: { confirm: 'Are you sure?' }, class: 'decoration_button'  do %>
+      <button type="button" class="btn btn-primary"><%= 'Excluir' %></button>
+    <% end %>
+    <br><br>       
+    <div class="button_add">
+      <%= button_to new_monster_path, :class => "btn btn-default", :method => :get do %>
+        <span class="glyphicon glyphicon-plus"></span> <% end %>
+    </div>
+    <br>
+<% end %>
+<% end %>
+    <%= link_to monsters_path, class: 'decoration_button'  do %>
+      <button type="button" class="btn btn-primary"><%= 'Back' %></button>
+    <% end %>
   </div>
 </div>
